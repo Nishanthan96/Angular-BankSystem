@@ -1,0 +1,55 @@
+
+<head>
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<div class="row">
+  <div class="col-md-3">
+
+<div class="dropdown">
+ <button><span>Savings Account</span></button>
+  <div class="dropdown-content">
+
+
+      <button class="" routerLink="/registration" routerLinkActive="active">Register Account</button>
+
+    <button class="" routerLink="/viewaccount" routerLinkActive="active">View Account</button>
+    <button>Delete Account</button>
+
+  </div>
+</div>
+
+<div class="dropdown">
+  <button><span>Group Account</span></button>
+  <div class="dropdown-content">
+    <button class="" routerLink="/registergroup" routerLinkActive="active">Register Group</button>
+    <button>View Account</button>
+    <button>Delete Account</button>
+  </div>
+</div>
+  </div>
+</div>
+</body>
+
+
+
+

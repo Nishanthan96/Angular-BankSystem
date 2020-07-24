@@ -1,0 +1,34 @@
+
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <app-transaction></app-transaction>
+
+  <div class="col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+      <form [formGroup]=""   autocomplete="off" >
+        <div class="form-group">
+          <label for="groupID">Group ID</label>
+          <input type="text" name="groupID" formControlName="groupID" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="transgp">Transaction Amount</label>
+          <input type="text" name="transgp" formControlName="transgp" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="accnodepgp">Deposit From (Account No)</label>
+          <input type="text" name="accnodepgp" formControlName="accnodepgp" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="ddate">Date</label>
+          <input type="date" name="ddate" formControlName="ddate" autocomplete="off" class="form-control input-sm" >
+        </div>
+
+        <button type="submit" class="btn btn-success" >Deposit</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+
+
+<div class="container-fluid" id="navbarsExample">
+<ul class="nav navbar-header">
+<li class="navbar-nav">
+<a class="nav-link" *ngIf="loginbtn" routerLink="home" routerLinkActive="active">Home</a>
+</li>
+  <li class="nav navbar-nav">
+    <a class="nav-link" *ngIf="loginbtn" routerLink="home" routerLinkActive="active">Bank Information</a>
+  </li>
+  <li class="nav navbar-nav">
+    <a class="nav-link" *ngIf="loginbtn" routerLink="/loaninfo" routerLinkActive="active">Loan Information</a>
+  </li>
+  <li class="nav navbar-nav">
+    <a class="nav-link" *ngIf="loginbtn" routerLink="/createcus" routerLinkActive="active">Create Account</a>
+  </li>
+<li class="nav navbar-right">
+<a class="nav-link" *ngIf="loginbtn" routerLink="login" routerLinkActive="active">Login</a>
+</li>
+<li class="nav navbar-right">
+<button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
+</li>
+
+</ul>
+</div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,33 @@
+<head>
+  <meta charset="utf-8" />
+  <title>SidebarMenu by Ninety-Niners.com</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./dashboard.component.css" />
+</head>
+<body>
+
+<div class="container bar">
+  <label class="floatLeft" for="navBtn"><span></span></label>
+
+</div>
+<div class="container">
+  <input type="checkbox" class="navBtn" id="navBtn" />
+  <nav>
+    <ul>
+      <li>
+        <a class="" routerLink="/account" routerLinkActive="active">Account</a>
+      </li>
+      <li>
+        <a class="" routerLink="/transaction" routerLinkActive="active">Transaction</a>
+      </li>
+      <li>
+        <a >Loan</a>
+      </li>
+      <li>
+        <a href="#">Customer Information</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<router-outlet></router-outlet>
+</body>
