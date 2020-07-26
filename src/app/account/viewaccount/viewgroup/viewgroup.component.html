@@ -1,0 +1,52 @@
+
+<form #f = "ngForm">
+  <label>Group ID</label>
+  <input type="text" name="Group ID" [(ngModel)] = "selectedAccount.groupID">
+  <br>
+  <label>Account No 1</label>
+  <input type="text" name="Account No 1" [(ngModel)] = "selectedAccount.accountno1">
+  <br>
+  <label>Account No 2</label>
+  <input type="text" name="Account No 2" [(ngModel)] = "selectedAccount.accountno2">
+  <br>
+  <label>Account No 3</label>
+  <input type="text" name="Account No 3" [(ngModel)] = "selectedAccount.accountno3">
+  <br>
+  <label>Account No 4</label>
+  <input type="text" name="Account No 4" [(ngModel)] = "selectedAccount.accountno4">
+  <br>
+  <label>Account No 5</label>
+  <input type="text" name="Account No 5" [(ngModel)] = "selectedAccount.accountno5">
+  <br>
+  <label>Balance</label>
+  <input type="text" name="Balance" [(ngModel)] = "selectedAccount.balancegp">
+  <br>
+  <input type="button" (click)="UpdateAccount(f)" value="Update Account">
+</form>
+<br/>
+<div>
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Group ID</th>
+      <th>Account No.1</th>
+      <th>Account No.2</th>
+      <th>Account No.3</th>
+      <th>Account No.4</th>
+      <th>Account No.5</th>
+      <th>Balance</th>
+    </tr>
+    <tr *ngFor="let gpaccount of gpaccounts">
+      <td>{{ gpaccount.groupID }}</td>
+      <td>{{ gpaccount.accountno1 }}</td>
+      <td>{{ gpaccount.accountno2 }}</td>
+      <td>{{ gpaccount.accountno3 }}</td>
+      <td>{{ gpaccount.accountno4 }}</td>
+      <td>{{ gpaccount.accountno5 }}</td>
+      <td>{{ gpaccount.balancegp }}</td>
+      <td>
+        <button (click)="selectAccount(gpaccount)" >Edit</button>
+        <button (click)="deleteGpAccount(gpaccount.groupID )">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

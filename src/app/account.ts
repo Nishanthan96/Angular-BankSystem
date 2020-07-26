@@ -8,3 +8,5 @@ export class Account {
   public email:string;
   public phone:number;
   public balance:number;}
+
+

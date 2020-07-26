@@ -6,6 +6,7 @@ import {CreateSavings} from "./createsavings";
 import {Observable} from "rxjs";
 import {Account} from "./account";
 import {Users} from "./users";
+import {ViewGpAcc} from "./accountgroup";
 
 
 
@@ -29,6 +30,17 @@ constructor(private httpClient : HttpClient) { }
   deleteAccount(accountno: number){
     return this.httpClient.delete<Account>(`${this.PHP_API_SERVER}/delete.php/?accountno=${accountno}`);
   }
+
+  readGpAccount(): Observable<ViewGpAcc[]>{
+    return this.httpClient.get<ViewGpAcc[]>(`${this.PHP_API_SERVER}/readgroup.php`);
+  }
+  updateGpAccount(gpaccount: ViewGpAcc){
+    return this.httpClient.put<ViewGpAcc>(`${this.PHP_API_SERVER}/updategroup.php`, gpaccount);
+  }
+  deleteGpAccount(groupID: number){
+    return this.httpClient.delete<ViewGpAcc>(`${this.PHP_API_SERVER}/deletegroup.php/?groupID=${groupID}`);
+  }
+
 
 public userlogin(usernamee, epassword) {
 alert(usernamee)

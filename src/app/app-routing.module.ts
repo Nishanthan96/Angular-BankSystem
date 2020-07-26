@@ -15,6 +15,7 @@ import {WithdrawComponent} from "./transaction/withdraw/withdraw.component";
 import {ViewaccountComponent} from "./account/viewaccount/viewaccount.component";
 import {CreatecusComponent} from "./customer/createcus/createcus.component";
 import {LoaninfoComponent} from "./loaninfo/loaninfo.component";
+import {ViewgroupComponent} from "./account/viewaccount/viewgroup/viewgroup.component";
 
 const routes: Routes = [
 { path: '', component: LoginComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path:'withdraw',component:WithdrawComponent},
   {path:'viewaccount',component:ViewaccountComponent},
   {path:'createcus', component:CreatecusComponent},
-  {path:'loaninfo',component:LoaninfoComponent}
+  {path:'loaninfo',component:LoaninfoComponent},
+  {path:'viewgroup',component:ViewgroupComponent}
 
 ]
 
