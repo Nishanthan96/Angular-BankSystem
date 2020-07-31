@@ -12,7 +12,8 @@ if(isset($postdata) && !empty($postdata))
 
     	$balance = mysqli_real_escape_string($mysqli, trim($request['balance']));
 
-	$sql = "UPDATE createsavings SET balance=balance + '$balance'  WHERE accountno = '$accountno'";
+	$sql = "UPDATE createsavings SET balance=balance - '$balance'  WHERE accountno = '$accountno'";
+
 
 	if($mysqli->query($sql))
 	{

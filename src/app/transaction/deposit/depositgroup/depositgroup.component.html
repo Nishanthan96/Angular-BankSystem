@@ -6,25 +6,25 @@
 
   <div class="col-md-6 col-md-offset-3">
     <div class="jumbotron">
-      <form [formGroup]=""   autocomplete="off" >
-        <div class="form-group">
+      <form #d = "ngForm" >
+        <div>
           <label for="groupID">Group ID</label>
-          <input type="text" name="groupID" formControlName="groupID" autocomplete="off" class="form-control input-sm" >
+          <input type="text" name="groupID"  autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.groupID">
         </div>
-        <div class="form-group">
+        <div>
           <label for="transgp">Transaction Amount</label>
-          <input type="text" name="transgp" formControlName="transgp" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="transgp" autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.balancegp">
         </div>
-        <div class="form-group">
+        <div>
           <label for="accnodepgp">Deposit From (Account No)</label>
-          <input type="text" name="accnodepgp" formControlName="accnodepgp" autocomplete="off" class="form-control input-sm" >
+          <input type="text" name="accnodepgp"  autocomplete="off" class="form-control input-sm" >
         </div>
-        <div class="form-group">
+        <div>
           <label for="ddate">Date</label>
-          <input type="date" name="ddate" formControlName="ddate" autocomplete="off" class="form-control input-sm" >
+          <input type="date" name="ddate"  autocomplete="off" class="form-control input-sm" >
         </div>
 
-        <button type="submit" class="btn btn-success" >Deposit</button>
+        <button type="submit" class="btn btn-success" (click)="depositamountgp(d)" >Deposit</button>
       </form>
     </div>
   </div>

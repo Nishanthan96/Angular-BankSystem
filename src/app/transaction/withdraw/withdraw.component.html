@@ -6,21 +6,21 @@
 
   <div class="col-md-6 col-md-offset-3">
     <div class="jumbotron">
-      <form [formGroup]=""   autocomplete="off" >
-        <div class="form-group">
+      <form #w = "ngForm" [formGroup]="angFormtransav"  (ngSubmit)="postdata(angFormtransav)">
+        <div >
           <label for="accountno">Account Number</label>
-          <input type="text" name="accountno" formControlName="accountno" autocomplete="off" class="form-control input-sm" >
+          <input type="text" name="accountno"  autocomplete="off" formControlName="accountno" class="form-control input-sm" [(ngModel)]="selectedAccount.accountno">
         </div>
-        <div class="form-group">
-          <label for="trans">Transaction Amount</label>
-          <input type="text" name="trans" formControlName="trans" autocomplete="off" class="form-control input-sm" >
+        <div >
+          <label for="amount">Transaction Amount</label>
+          <input type="number" name="amount"  autocomplete="off" formControlName="amount" class="form-control input-sm" [(ngModel)]="selectedAccount.balance" >
         </div>
-        <div class="form-group">
-          <label for="wdate">Date</label>
-          <input type="date" name="wdate" formControlName="wdate" autocomplete="off" class="form-control input-sm" >
+        <div >
+          <label for="datetrans">Date</label>
+          <input type="date" name="datetrans" autocomplete="off" formControlName="datetrans" class="form-control input-sm" >
         </div>
 
-        <button type="submit" class="btn btn-success" >Withdraw</button>
+        <button type="submit" class="btn btn-success" (click)="withdrawamount(w)" >Withdraw</button>
       </form>
     </div>
   </div>

@@ -6,21 +6,21 @@
 
   <div class="col-md-6 col-md-offset-3">
     <div class="jumbotron">
-      <form [formGroup]=""   autocomplete="off" >
-        <div class="form-group">
+      <form #d = "ngForm">
+        <div >
           <label for="shareID">Share ID</label>
-          <input type="text" name="shareID" formControlName="shareID" autocomplete="off" class="form-control input-sm" >
+          <input type="text" name="shareID"  autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.shareID">
         </div>
         <div class="form-group">
           <label for="transshare">Transaction Amount</label>
-          <input type="text" name="transshare" formControlName="transshare" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="transshare"  autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.balanceshare" >
         </div>
-        <div class="form-group">
+        <div >
           <label for="ddate">Date</label>
-          <input type="date" name="ddate" formControlName="ddate" autocomplete="off" class="form-control input-sm" >
+          <input type="date" name="ddate" autocomplete="off" class="form-control input-sm" >
         </div>
 
-        <button type="submit" class="btn btn-success" >Deposit</button>
+        <button type="submit" class="btn btn-success" (click)="depositamountshare(d)" >Deposit</button>
       </form>
     </div>
   </div>

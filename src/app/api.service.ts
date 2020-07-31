@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import {Account} from "./account";
 import {Users} from "./users";
 import {ViewGpAcc} from "./accountgroup";
+import {ViewShareAcc} from "./accountshare";
 
 
 
@@ -34,6 +35,9 @@ constructor(private httpClient : HttpClient) { }
   readGpAccount(): Observable<ViewGpAcc[]>{
     return this.httpClient.get<ViewGpAcc[]>(`${this.PHP_API_SERVER}/readgroup.php`);
   }
+  readShareAccount(): Observable<ViewShareAcc[]>{
+    return this.httpClient.get<ViewShareAcc[]>(`${this.PHP_API_SERVER}/readshare.php`);
+  }
   updateGpAccount(gpaccount: ViewGpAcc){
     return this.httpClient.put<ViewGpAcc>(`${this.PHP_API_SERVER}/updategroup.php`, gpaccount);
   }
@@ -52,6 +56,16 @@ constructor(private httpClient : HttpClient) { }
   depositsavings(account: Account){
     return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/depositsavings.php`, account);
   }
+  depositgroup(gpaccount: ViewGpAcc){
+    return this.httpClient.put<ViewGpAcc>(`${this.PHP_API_SERVER}/depositgroup.php`, gpaccount);
+  }
+  depositshare(shareaccount: ViewShareAcc){
+    return this.httpClient.put<ViewShareAcc>(`${this.PHP_API_SERVER}/depositshare.php`, shareaccount);
+  }
+  withdrawsavings(account: Account){
+    return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/withdrawsavings.php`, account);
+  }
+
 
 
 
@@ -97,6 +111,18 @@ return CreateSavings;
     return this.httpClient.post<any>(this.baseUrl + '/registergp.php', { accountno1, accountno2,accountno3,accountno4,accountno5,balancegp })
       .pipe(map(Creategp => {
         return Creategp;
+      }));
+  }
+  public transactionsav(accountno,amount,datetrans) {
+    return this.httpClient.post<any>(this.baseUrl + '/transactionsavings.php', { accountno,amount,datetrans })
+      .pipe(map(Transactionsavings => {
+        return Transactionsavings;
+      }));
+  }
+  public transactionsavw(accountno,amount,datetrans) {
+    return this.httpClient.post<any>(this.baseUrl + '/transactionsavingsw.php', { accountno,amount,datetrans })
+      .pipe(map(Transactionsavings => {
+        return Transactionsavings;
       }));
   }
 

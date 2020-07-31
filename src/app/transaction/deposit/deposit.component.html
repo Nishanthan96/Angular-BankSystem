@@ -3,21 +3,21 @@
   <div class="col-md-3">
   </div>
   <app-transaction></app-transaction>
-  <form #d = "ngForm">
+  <form #d = "ngForm" [formGroup]="angFormtransav"  (ngSubmit)="postdata(angFormtransav)">
   <div class="col-md-6 col-md-offset-3">
     <div class="jumbotron">
 
         <div>
           <label for="accountno">Account Number</label>
-          <input type="text" name="accountno" autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.accountno">
+          <input type="text" name="accountno" autocomplete="off" formControlName="accountno" class="form-control input-sm" [(ngModel)]="selectedAccount.accountno">
         </div>
         <div >
-          <label for="trans">Transaction Amount</label>
-          <input type="number" name="trans"  autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.balance">
+          <label for="amount">Transaction Amount</label>
+          <input type="number" name="amount"  autocomplete="off" class="form-control input-sm" formControlName="amount"[(ngModel)]="selectedAccount.balance">
         </div>
         <div>
-          <label for="ddate">Date</label>
-          <input type="date" name="ddate"  autocomplete="off" class="form-control input-sm" ngModel="ddate" >
+          <label for="datetrans">Date</label>
+          <input type="date" name="datetrans"  autocomplete="off" class="form-control input-sm" formControlName="datetrans" ngModel="ddate" >
         </div>
 
         <button type="submit" class="btn btn-success" (click)="depositamount(d)" >Deposit</button>

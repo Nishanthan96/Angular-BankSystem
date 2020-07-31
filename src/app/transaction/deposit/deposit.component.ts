@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {Account} from "../../account";
 import {ApiService} from "../../api.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-deposit',
@@ -11,8 +13,15 @@ import {ApiService} from "../../api.service";
 
 export class DepositComponent implements OnInit {
   accounts: Account[];
+  angFormtransav: FormGroup;
   selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null}
-  constructor(private apiService: ApiService) {
+  constructor(private fb: FormBuilder,private apiService: ApiService,private router:Router,private dataService: ApiService) {
+    this.angFormtransav = this.fb.group({
+      accountno: ['', Validators.required],
+
+      amount: ['', Validators.required],
+      datetrans: ['', Validators.required]
+    });
 
   }
 
@@ -27,6 +36,22 @@ export class DepositComponent implements OnInit {
 
 
 }
+  postdata(angFormtransav1)
+  {
+    this.dataService.transactionsav(angFormtransav1.value.accountno,angFormtransav1.value.amount,angFormtransav1.value.datetrans)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate(['login']);
+        },
+
+        error => {
+        });
+  }
+  get accountno() { return this.angFormtransav.get('accountno'); }
+  get amount() { return this.angFormtransav.get('amount'); }
+  get datetrans() { return this.angFormtransav.get('datetrans'); }
+
 
   depositamount(form){
     form.value.accountno = this.selectedAccount.accountno;
