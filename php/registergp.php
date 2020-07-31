@@ -10,7 +10,7 @@ $accountno3 = trim($request->accountno3);
 $accountno4 = trim($request->accountno4);
 $accountno5 = trim($request->accountno5);
 $balancegp = trim($request->balancegp);
-$sql = "INSERT INTO groupacc(accountno1,accountno2,accountno3,accountno4,accountno5,balancegp) VALUES ('$accountno1','$accountno2','$accountno3','$accountno4','$accountno5','balancegp')";
+$sql = "INSERT INTO groupacc(accountno1,accountno2,accountno3,accountno4,accountno5,balancegp) VALUES ('$accountno1','$accountno2','$accountno3','$accountno4','$accountno5','$balancegp')";
 if ($mysqli->query($sql) === TRUE) {
 $authdata = [
 'accountno1' => $accountno1,

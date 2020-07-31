@@ -22,6 +22,7 @@ import {ViewaccountComponent} from "./account/viewaccount/viewaccount.component"
 import {CreatecusComponent} from "./customer/createcus/createcus.component";
 import {LoaninfoComponent} from "./loaninfo/loaninfo.component";
 import {ViewgroupComponent} from "./account/viewaccount/viewgroup/viewgroup.component";
+import {CustomerinfoComponent} from "./customerinfo/customerinfo.component";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {ViewgroupComponent} from "./account/viewaccount/viewgroup/viewgroup.comp
     ViewaccountComponent,
     CreatecusComponent,
     LoaninfoComponent,
-    ViewgroupComponent
+    ViewgroupComponent,
+    CustomerinfoComponent
 
   ],
   imports: [

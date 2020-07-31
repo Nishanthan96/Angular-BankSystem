@@ -40,6 +40,21 @@ constructor(private httpClient : HttpClient) { }
   deleteGpAccount(groupID: number){
     return this.httpClient.delete<ViewGpAcc>(`${this.PHP_API_SERVER}/deletegroup.php/?groupID=${groupID}`);
   }
+  readCustomer(): Observable<Account[]>{
+    return this.httpClient.get<Account[]>(`${this.PHP_API_SERVER}/index.php`);
+  }
+  updateCustomer(account: Account){
+    return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/update.php`, account);
+  }
+  deleteCustomer(accountno: number){
+    return this.httpClient.delete<Account>(`${this.PHP_API_SERVER}/delete.php/?accountno=${accountno}`);
+  }
+  depositsavings(account: Account){
+    return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/depositsavings.php`, account);
+  }
+
+
+
 
 
 public userlogin(usernamee, epassword) {
