@@ -7,6 +7,8 @@ export class Account {
   public nic:string;
   public email:string;
   public phone:number;
-  public balance:number;}
-
+  public balance:number;
+  public  shareID:number;
+  public groupID:number;
+}
 

@@ -12,7 +12,8 @@ $dob = trim($request->dob);
 $email = trim($request->email);
 $phone = trim($request->phone);
 $balance = trim($request->balance);
-$sql = "INSERT INTO createsavings(customername,category,address,nic,dob,email,phone,balance) VALUES ('$customername','$category','$address','$nic','$dob','$email','$phone','$balance')";
+$shareID = trim($request->shareID);
+$sql = "INSERT INTO createsavings(customername,category,address,nic,dob,email,phone,balance,shareID) VALUES ('$customername','$category','$address','$nic','$dob','$email','$phone','$balance','$shareID')";
 if ($mysqli->query($sql) === TRUE) {
 $authdata = [
 'customername' => $name,
@@ -23,6 +24,7 @@ $authdata = [
 'email' => $email,
 'phone' => $phone,
 'balance' => $balance,
+'shareID' => $shareID,
 'accountno' => mysqli_insert_accountno($mysqli)
 ];
 echo json_encode($authdata);

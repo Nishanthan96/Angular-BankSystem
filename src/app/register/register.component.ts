@@ -21,7 +21,8 @@ nic: ['', Validators.required],
   address: ['', Validators.required],
   balance: ['', Validators.required],
   category: ['', Validators.required],
-phone: ['', Validators.required]
+phone: ['', Validators.required],
+  shareID: ['', Validators.required]
 });
 }
 
@@ -30,7 +31,8 @@ ngOnInit() {
 
 postdata(angForm1)
 {
-this.dataService.userregistration(angForm1.value.customername,angForm1.value.category,angForm1.value.address,angForm1.value.dob,angForm1.value.nic,angForm1.value.email,angForm1.value.phone,angForm1.value.balance)
+
+this.dataService.userregistration(angForm1.value.customername,angForm1.value.category,angForm1.value.address,angForm1.value.dob,angForm1.value.nic,angForm1.value.email,angForm1.value.phone,angForm1.value.balance,angForm1.value.shareID)
 .pipe(first())
 .subscribe(
 data => {
@@ -49,4 +51,5 @@ get address() { return this.angForm.get('address'); }
   get email() { return this.angForm.get('email'); }
   get phone() { return this.angForm.get('phone'); }
   get balance() { return this.angForm.get('balance'); }
+  get shareID() { return this.angForm.get('shareID'); }
 }

@@ -5,9 +5,10 @@ import {CreateSavings} from "./createsavings";
 
 import {Observable} from "rxjs";
 import {Account} from "./account";
-import {Users} from "./users";
+import {CUsers, Users} from "./users";
 import {ViewGpAcc} from "./accountgroup";
 import {ViewShareAcc} from "./accountshare";
+import {Accloan} from "./accloan";
 
 
 
@@ -80,7 +81,7 @@ this.getLoggedInName.emit(true);
 return Users;
 }));
 }
-  public cuserlogin(usernamec, passwordc) {
+  public custlogin(usernamec, passwordc) {
     alert(usernamec)
     return this.httpClient.post<any>(this.baseUrl + '/clogin.php', { usernamec, passwordc })
       .pipe(map(CUsers => {
@@ -92,10 +93,10 @@ return Users;
 
 
 
-public userregistration(customername, category,address,dob,nic,email,phone,balance) {
-return this.httpClient.post<any>(this.baseUrl + '/register.php', { customername,category, address,dob,nic,email,phone,balance })
+public userregistration(customername, category,address,dob,nic,email,phone,balance,shareID) {
+return this.httpClient.post<any>(this.baseUrl + '/register.php', { customername,category, address,dob,nic,email,phone,balance,shareID })
 .pipe(map(CreateSavings => {
-return CreateSavings;
+return CreateSavings ;
 }));
 }
 
@@ -113,6 +114,7 @@ return CreateSavings;
         return Creategp;
       }));
   }
+
   public transactionsav(accountno,amount,datetrans) {
     return this.httpClient.post<any>(this.baseUrl + '/transactionsavings.php', { accountno,amount,datetrans })
       .pipe(map(Transactionsavings => {
@@ -123,6 +125,12 @@ return CreateSavings;
     return this.httpClient.post<any>(this.baseUrl + '/transactionsavingsw.php', { accountno,amount,datetrans })
       .pipe(map(Transactionsavings => {
         return Transactionsavings;
+      }));
+  }
+  public loansave(accountno, loanID,loantype,loanamount,loanduration,createdate,startdate,nextdate) {
+    return this.httpClient.post<any>(this.baseUrl + '/loan.php', { accountno,loanID, loantype,loanamount,loanduration,createdate,startdate,nextdate })
+      .pipe(map(Loan => {
+        return Loan;
       }));
   }
 

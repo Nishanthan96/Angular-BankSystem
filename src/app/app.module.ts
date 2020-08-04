@@ -23,6 +23,9 @@ import {CreatecusComponent} from "./customer/createcus/createcus.component";
 import {LoaninfoComponent} from "./loaninfo/loaninfo.component";
 import {ViewgroupComponent} from "./account/viewaccount/viewgroup/viewgroup.component";
 import {CustomerinfoComponent} from "./customerinfo/customerinfo.component";
+import {CustdashboardComponent} from "./dashboard customer/custdashboard.component";
+import {LoanComponent} from "./loan/loan.component";
+import {CustomerloginComponent} from "./customer/customerlogin/customerlogin.component";
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import {CustomerinfoComponent} from "./customerinfo/customerinfo.component";
     CreatecusComponent,
     LoaninfoComponent,
     ViewgroupComponent,
-    CustomerinfoComponent
+    CustomerinfoComponent,
+    CustdashboardComponent,
+    LoanComponent,
+    CustomerloginComponent
 
   ],
   imports: [

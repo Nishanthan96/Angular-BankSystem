@@ -12,7 +12,7 @@ import {Account} from "../account";
 
 export class CustomerinfoComponent implements OnInit {
   accounts: Account[];
-  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null}
+  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID: null,groupID:null}
   constructor(private apiService: ApiService) {
 
   }

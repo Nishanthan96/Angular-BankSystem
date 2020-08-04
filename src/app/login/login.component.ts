@@ -30,26 +30,11 @@ const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '
 this.router.navigate([redirect]);
 },
   error => {
-alert("User name or password is incorrect")
+alert("Username or password is incorrect")
 });
 }
 get usernamee() { return this.angForm.get('usernamee'); }
 get epassword() { return this.angForm.get('epassword'); }
 
-  postdata1(angForm1)
-  {
-    this.dataService.userlogin(angForm1.value.usernamec,angForm1.value.passwordc)
-      .pipe(first())
-      .subscribe(
-        data => {
-          const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/home';
-          this.router.navigate([redirect]);
-        },
-        error => {
-          alert("User name or password is incorrect")
-        });
-  }
-  get usernamec() { return this.angForm.get('usernamee'); }
-  get passwordc() { return this.angForm.get('epassword'); }
 
 }

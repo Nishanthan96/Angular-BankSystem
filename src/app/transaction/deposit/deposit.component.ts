@@ -14,7 +14,7 @@ import {first} from "rxjs/operators";
 export class DepositComponent implements OnInit {
   accounts: Account[];
   angFormtransav: FormGroup;
-  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null}
+  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID:null,groupID:null}
   constructor(private fb: FormBuilder,private apiService: ApiService,private router:Router,private dataService: ApiService) {
     this.angFormtransav = this.fb.group({
       accountno: ['', Validators.required],

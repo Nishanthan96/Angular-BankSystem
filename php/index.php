@@ -17,6 +17,8 @@ if($result = $mysqli->query($sql))
 		$createsavings[$i]['email'] = $row['email'];
 		$createsavings[$i]['phone'] = $row['phone'];
 		$createsavings[$i]['balance'] = $row['balance'];
+		$createsavings[$i]['shareID'] = $row['shareID'];
+		$createsavings[$i]['groupID'] = $row['groupID'];
 		$i++;
 	}
 	echo json_encode($createsavings);

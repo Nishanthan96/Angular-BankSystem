@@ -17,6 +17,10 @@ import {CreatecusComponent} from "./customer/createcus/createcus.component";
 import {LoaninfoComponent} from "./loaninfo/loaninfo.component";
 import {ViewgroupComponent} from "./account/viewaccount/viewgroup/viewgroup.component";
 import {CustomerinfoComponent} from "./customerinfo/customerinfo.component";
+import {LoanComponent} from "./loan/loan.component";
+import {CustomerloginComponent} from "./customer/customerlogin/customerlogin.component";
+import {CustdashboardComponent} from "./dashboard customer/custdashboard.component";
+
 
 const routes: Routes = [
 { path: '', component: LoginComponent },
@@ -35,7 +39,10 @@ const routes: Routes = [
   {path:'createcus', component:CreatecusComponent},
   {path:'loaninfo',component:LoaninfoComponent},
   {path:'viewgroup',component:ViewgroupComponent},
-  {path:'custinfo',component:CustomerinfoComponent}
+  {path:'custinfo',component:CustomerinfoComponent},
+  {path:'loan', component:LoanComponent},
+  {path:'customerlogin', component:CustomerloginComponent},
+  {path:'custdash', component:CustdashboardComponent}
 
 ]
 
