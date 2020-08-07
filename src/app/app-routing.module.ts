@@ -20,6 +20,8 @@ import {CustomerinfoComponent} from "./customerinfo/customerinfo.component";
 import {LoanComponent} from "./loan/loan.component";
 import {CustomerloginComponent} from "./customer/customerlogin/customerlogin.component";
 import {CustdashboardComponent} from "./dashboard customer/custdashboard.component";
+import {ViewloanComponent} from "./loan/viewloan/viewloan.component";
+import {NotificationComponent} from "./notification/notification.component";
 
 
 const routes: Routes = [
@@ -42,7 +44,9 @@ const routes: Routes = [
   {path:'custinfo',component:CustomerinfoComponent},
   {path:'loan', component:LoanComponent},
   {path:'customerlogin', component:CustomerloginComponent},
-  {path:'custdash', component:CustdashboardComponent}
+  {path:'custdash', component:CustdashboardComponent},
+  {path:'viewloan', component:ViewloanComponent},
+  {path:'notification',component:NotificationComponent}
 
 ]
 

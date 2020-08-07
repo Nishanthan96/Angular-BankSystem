@@ -39,6 +39,9 @@ constructor(private httpClient : HttpClient) { }
   readShareAccount(): Observable<ViewShareAcc[]>{
     return this.httpClient.get<ViewShareAcc[]>(`${this.PHP_API_SERVER}/readshare.php`);
   }
+  readLoan(): Observable<Accloan[]>{
+    return this.httpClient.get<Accloan[]>(`${this.PHP_API_SERVER}/readloan.php`);
+  }
   updateGpAccount(gpaccount: ViewGpAcc){
     return this.httpClient.put<ViewGpAcc>(`${this.PHP_API_SERVER}/updategroup.php`, gpaccount);
   }
@@ -53,6 +56,12 @@ constructor(private httpClient : HttpClient) { }
   }
   deleteCustomer(accountno: number){
     return this.httpClient.delete<Account>(`${this.PHP_API_SERVER}/delete.php/?accountno=${accountno}`);
+  }
+  updateLoan(accloan: Accloan){
+    return this.httpClient.put<Accloan>(`${this.PHP_API_SERVER}/updateloan.php`, accloan);
+  }
+  deleteLoan(loanID: string){
+    return this.httpClient.delete<Accloan>(`${this.PHP_API_SERVER}/deleteloan.php/?loanID=${loanID}`);
   }
   depositsavings(account: Account){
     return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/depositsavings.php`, account);

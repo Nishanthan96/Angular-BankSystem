@@ -23,6 +23,7 @@
     "@angular/router": "~9.1.9",
     "bootstrap": "^3.4.1",
     "cors": "^2.8.5",
+    "daypilot-pro-angular": "https://npm.daypilot.org/daypilot-pro-angular/trial/2020.3.4547.tar.gz",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

@@ -1,0 +1,55 @@
+
+
+<div class="col-md-10 col-md-offset-1">
+  <app-createloan></app-createloan>
+  <div class="col-md-10 col-md-offset-1">
+  <div class= "jumbotron">
+
+<div>
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Account No</th>
+      <th>Loan ID</th>
+      <th>Loan Type</th>
+      <th>Loan Amount</th>
+      <th>Loan Duration</th>
+      <th>Installment</th>
+      <th>Created Date</th>
+      <th>Start Date</th>
+      <th>Next Payment Date</th>
+    </tr>
+    <tr *ngFor="let accloan of accloans">
+      <td>{{ accloan.accountno }}</td>
+      <td>{{ accloan.loanID }}</td>
+      <td>{{ accloan.loantype }}</td>
+      <td>{{ accloan.loanamount }}</td>
+      <td>{{ accloan.loanduration }}</td>
+      <td>{{ accloan.installment }}</td>
+      <td>{{ accloan.createdate }}</td>
+      <td>{{ accloan.startdate }}</td>
+      <td>{{ accloan.nextdate }}</td>
+      <td>
+        <button (click)="selectAccount(accloan)" >Edit</button>
+        <button (click)="deleteAccount(accloan.accountno )">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<form #l = "ngForm">
+  <label>Account No</label>
+  <input type="text" name="accountno" [(ngModel)] = "selectedAccount.accountno">
+  <br>
+  <label>Loan ID</label>
+  <input type="text" name="loanid" [(ngModel)] = "selectedAccount.loanID">
+  <br>
+  <label>Start Date</label>
+  <input type="date" name="startdate" [(ngModel)] = "selectedAccount.startdate">
+  <br>
+  <label>Next Payment Date</label>
+  <input type="date" name="nextdate" [(ngModel)] = "selectedAccount.nextdate">
+  <br>
+  <input type="button" (click)="Updateloan(l)" value="Update Account">
+</form>
+<br/>
+  </div></div>
+</div>

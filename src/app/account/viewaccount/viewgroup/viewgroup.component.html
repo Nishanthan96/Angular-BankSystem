@@ -1,28 +1,7 @@
 
-<form #f = "ngForm">
-  <label>Group ID</label>
-  <input type="text" name="Group ID" [(ngModel)] = "selectedAccount.groupID">
-  <br>
-  <label>Account No 1</label>
-  <input type="text" name="Account No 1" [(ngModel)] = "selectedAccount.accountno1">
-  <br>
-  <label>Account No 2</label>
-  <input type="text" name="Account No 2" [(ngModel)] = "selectedAccount.accountno2">
-  <br>
-  <label>Account No 3</label>
-  <input type="text" name="Account No 3" [(ngModel)] = "selectedAccount.accountno3">
-  <br>
-  <label>Account No 4</label>
-  <input type="text" name="Account No 4" [(ngModel)] = "selectedAccount.accountno4">
-  <br>
-  <label>Account No 5</label>
-  <input type="text" name="Account No 5" [(ngModel)] = "selectedAccount.accountno5">
-  <br>
-  <label>Balance</label>
-  <input type="text" name="Balance" [(ngModel)] = "selectedAccount.balancegp">
-  <br>
-  <input type="button" (click)="UpdateAccount(f)" value="Update Account">
-</form>
+<app-dashboard></app-dashboard>
+<div class="col-md-10 col-md-offset-1">
+  <div class= "jumbotron">
 <br/>
 <div>
   <table class="table table-striped table-bordered">
@@ -49,4 +28,30 @@
       </td>
     </tr>
   </table>
+  <form #f = "ngForm">
+    <label>Group ID</label>
+    <input type="text" name="Group ID" [(ngModel)] = "selectedAccount.groupID">
+    <br>
+    <label>Account No 1</label>
+    <input type="text" name="Account No 1" [(ngModel)] = "selectedAccount.accountno1">
+    <br>
+    <label>Account No 2</label>
+    <input type="text" name="Account No 2" [(ngModel)] = "selectedAccount.accountno2">
+    <br>
+    <label>Account No 3</label>
+    <input type="text" name="Account No 3" [(ngModel)] = "selectedAccount.accountno3">
+    <br>
+    <label>Account No 4</label>
+    <input type="text" name="Account No 4" [(ngModel)] = "selectedAccount.accountno4">
+    <br>
+    <label>Account No 5</label>
+    <input type="text" name="Account No 5" [(ngModel)] = "selectedAccount.accountno5">
+    <br>
+    <label>Balance</label>
+    <input type="text" name="Balance" [(ngModel)] = "selectedAccount.balancegp">
+    <br>
+    <input type="button" (click)="UpdateAccount(f)" value="Update Account">
+  </form>
+</div>
+  </div>
 </div>

@@ -1,13 +1,7 @@
+<app-dashboard></app-dashboard>
+<div class="col-md-10 col-md-offset-1">
+  <div class= "jumbotron">
 
-<form #f = "ngForm">
-  <label>Account No</label>
-  <input type="text" name="accountno" [(ngModel)] = "selectedAccount.accountno">
-  <br>
-  <label>Customer Name</label>
-  <input type="text" name="customername" [(ngModel)] = "selectedAccount.customername">
-  <br>
-  <input type="button" (click)="UpdateCust(f)" value="Update Account">
-</form>
 <br/>
 <div>
   <table class="table table-striped table-bordered">
@@ -38,4 +32,15 @@
       </td>
     </tr>
   </table>
+  <form #f = "ngForm">
+    <label>Account No</label>
+    <input type="text" name="accountno" [(ngModel)] = "selectedAccount.accountno">
+    <br>
+    <label>Customer Name</label>
+    <input type="text" name="customername" [(ngModel)] = "selectedAccount.customername">
+    <br>
+    <input type="button" (click)="UpdateCust(f)" value="Update Account">
+  </form>
+</div>
+  </div>
 </div>

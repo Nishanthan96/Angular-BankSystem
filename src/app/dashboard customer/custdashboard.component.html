@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<br><br><br>
+<div class="container bar">
+  <label class="floatLeft" for="navBtn"><span></span></label>
 
-</body>
-</html>
+</div>
+<div class="container">
+  <input type="checkbox" class="navBtn" id="navBtn" />
+  <nav>
+    <ul>
+      <li>
+        <a class="" routerLink="/account" routerLinkActive="active">View Account Balance</a>
+      </li>
+      <li>
+        <a class="" routerLink="/transaction" routerLinkActive="active">View Loan</a>
+      </li>
+      <li>
+        <a class="" routerLink="/loan" routerLinkActive="active">Request Loan</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>
+

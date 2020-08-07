@@ -7,6 +7,7 @@ export class Accloan {
   public createdate:string;
   public startdate:string;
   public nextdate:string;
+  public installment:number;
 
 }
 

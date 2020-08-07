@@ -26,6 +26,9 @@ import {CustomerinfoComponent} from "./customerinfo/customerinfo.component";
 import {CustdashboardComponent} from "./dashboard customer/custdashboard.component";
 import {LoanComponent} from "./loan/loan.component";
 import {CustomerloginComponent} from "./customer/customerlogin/customerlogin.component";
+import {ViewloanComponent} from "./loan/viewloan/viewloan.component";
+import {NotificationComponent} from "./notification/notification.component";
+import {CreateloanComponent} from "./loan/createloan/createloan.component";
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import {CustomerloginComponent} from "./customer/customerlogin/customerlogin.com
     CustomerinfoComponent,
     CustdashboardComponent,
     LoanComponent,
-    CustomerloginComponent
+    CustomerloginComponent,
+    ViewloanComponent,
+    NotificationComponent,
+    CreateloanComponent
 
   ],
   imports: [
