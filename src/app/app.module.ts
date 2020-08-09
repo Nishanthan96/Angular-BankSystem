@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {RegistergroupComponent} from "./register/registergroup/registergroup.component";
 import {MatMenuModule} from "@angular/material/menu";
 import {AccountComponent} from "./account/account.component";
@@ -29,6 +29,10 @@ import {CustomerloginComponent} from "./customer/customerlogin/customerlogin.com
 import {ViewloanComponent} from "./loan/viewloan/viewloan.component";
 import {NotificationComponent} from "./notification/notification.component";
 import {CreateloanComponent} from "./loan/createloan/createloan.component";
+import {SearchsavComponent} from "./account/searchsavings/searchsav.component";
+import {PayinstallmentComponent} from "./loan/payinstallment/payinstallment.component";
+import {ViewbalanceComponent} from "./dashboard customer/viewbalance/viewbalance.component";
+import {RequestloanComponent} from "./dashboard customer/requestloan/requestloan.component";
 
 
 @NgModule({
@@ -55,7 +59,11 @@ import {CreateloanComponent} from "./loan/createloan/createloan.component";
     CustomerloginComponent,
     ViewloanComponent,
     NotificationComponent,
-    CreateloanComponent
+    CreateloanComponent,
+    SearchsavComponent,
+    PayinstallmentComponent,
+    ViewbalanceComponent,
+    RequestloanComponent
 
   ],
   imports: [

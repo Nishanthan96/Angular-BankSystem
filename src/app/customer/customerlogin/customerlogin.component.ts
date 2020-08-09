@@ -11,6 +11,7 @@ import {ApiService} from "../../api.service";
 })
 export class CustomerloginComponent implements OnInit {
   angFormcus: FormGroup;
+  invalid: boolean = false;
   constructor(private fb: FormBuilder,private dataService: ApiService,private router:Router) {
     this.angFormcus = this.fb.group({
       usernamec: ['', [Validators.required]],
@@ -30,7 +31,7 @@ export class CustomerloginComponent implements OnInit {
           this.router.navigate([redirect]);
         },
         error => {
-          alert("Username or password is incorrect")
+          this.invalid = true
         });
   }
   get usernamec() { return this.angFormcus.get('usernamec'); }

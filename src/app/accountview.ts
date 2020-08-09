@@ -1,4 +1,4 @@
-export class Account {
+export class Accountview {
   public accountno: number;
   public customername: string;
   public category:string;

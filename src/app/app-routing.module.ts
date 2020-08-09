@@ -22,6 +22,10 @@ import {CustomerloginComponent} from "./customer/customerlogin/customerlogin.com
 import {CustdashboardComponent} from "./dashboard customer/custdashboard.component";
 import {ViewloanComponent} from "./loan/viewloan/viewloan.component";
 import {NotificationComponent} from "./notification/notification.component";
+import {SearchsavComponent} from "./account/searchsavings/searchsav.component";
+import {PayinstallmentComponent} from "./loan/payinstallment/payinstallment.component";
+import {ViewbalanceComponent} from "./dashboard customer/viewbalance/viewbalance.component";
+import {RequestloanComponent} from "./dashboard customer/requestloan/requestloan.component";
 
 
 const routes: Routes = [
@@ -46,7 +50,11 @@ const routes: Routes = [
   {path:'customerlogin', component:CustomerloginComponent},
   {path:'custdash', component:CustdashboardComponent},
   {path:'viewloan', component:ViewloanComponent},
-  {path:'notification',component:NotificationComponent}
+  {path:'notification',component:NotificationComponent},
+  {path:'search', component:SearchsavComponent},
+  {path:'payinstall', component:PayinstallmentComponent},
+  {path:'viewbalance', component:ViewbalanceComponent},
+  {path:'reqloan',component:RequestloanComponent}
 
 ]
 

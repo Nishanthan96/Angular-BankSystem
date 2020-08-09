@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+<br>
+<div id="search-component">
+  <h4>User Search</h4>
+
+  <!-- #searchBox declares template reference variable searchBox-->
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let user of users$ | async" >
+      <a >
+        {{user.customername}}
+      </a>
+    </li>
+  </ul>
+</div>z

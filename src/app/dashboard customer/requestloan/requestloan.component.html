@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <app-custdashboard></app-custdashboard>
+
+  <div class="col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+      <form [formGroup]="angFormloanreq" (ngSubmit)="postdata(angFormloanreq)" autocomplete="off" >
+        <div class="form-group">
+          <label for="accountno">Account No</label>
+          <input type="text" name="accountno" formControlName="accountno" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="reqloantype">Loan Type</label>
+          <select type="text" name="reqloantype" formControlName="reqloantype" autocomplete="off" class="form-control input-sm" placeholder="Category">
+            <option>a</option>
+            <option>b</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="reqloanamount">Loan Amount</label>
+          <input type="number" name="reqloanamount" formControlName="reqloanamount" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="reqdate">Date</label>
+          <input type="date" name="reqdate" formControlName="reqdate" autocomplete="off" class="form-control input-sm" >
+        </div>
+
+        <button type="submit" class="btn btn-success" >Request</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+

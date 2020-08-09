@@ -1,19 +1,29 @@
 <?php
-$search = $_POST['search'];
+
 require 'database.php';
-$sql = "SELECT * from createsavings where accountno like '%$search%'";
 
+if (!$mysqli) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$data = json_decode(file_get_contents("php://input")); // $data is an Hero[] array, now empty
+
+$sql = "SELECT * FROM createsavings ORDER BY accountno DESC";
 $result = $mysqli->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
 
-
-if ($result->num_rows > 0){
-while($row = $result->fetch_assoc() ){
-	echo $row["shareID"]."  ".$row["groupID"]."<br>";
-}
+    while($row = $result->fetch_assoc()) {
+        $data[] = $row; // adding each object to $data[] array. // special syntax
+    }
+    echo json_encode($data);
 } else {
-	echo "0 records";
+    echo "0";
 }
 
-$mysqli->close();
+
+
+mysqli_close($mysqli);
+
 
 ?>

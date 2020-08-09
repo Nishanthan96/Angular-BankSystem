@@ -1,0 +1,38 @@
+
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <app-createloan></app-createloan>
+
+  <div class="col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+      <form [formGroup]="angFormpay" (ngSubmit)="postdata(angFormpay)" autocomplete="off" >
+        <div class="form-group">
+          <label for="accountno">Account No</label>
+          <input type="text" name="accountno" formControlName="accountno" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="loanID">Loan Number</label>
+          <input type="text" name="loanID" formControlName="loanID" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="remainingmonths">Remaining Month(s)</label>
+          <input type="number" name="remainingmonths" formControlName="remainingmonths" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="payamount">Installment</label>
+          <input type="number" name="payamount" formControlName="payamount" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="nextpaydate">Date</label>
+          <input type="date" name="nextpaydate" formControlName="nextpaydate" autocomplete="off" class="form-control input-sm" >
+        </div>
+
+
+        <button type="submit" class="btn btn-success" >Pay</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>

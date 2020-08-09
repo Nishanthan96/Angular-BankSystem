@@ -1,14 +1,18 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { map } from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import {CreateSavings} from "./createsavings";
 
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Account} from "./account";
 import {CUsers, Users} from "./users";
 import {ViewGpAcc} from "./accountgroup";
 import {ViewShareAcc} from "./accountshare";
 import {Accloan} from "./accloan";
+import {MessageService} from "./message.service";
+import {Payloan} from "./install";
+import {Accountview} from "./accountview";
+import {Accloanreq} from "./accloanreq";
 
 
 
@@ -20,11 +24,17 @@ export class ApiService {
   PHP_API_SERVER = "http://localhost/banksql/php";
 redirectUrl: string;
 baseUrl:string = "http://localhost/banksql/php";
+  private http: HttpClient;
+
+
 @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
-constructor(private httpClient : HttpClient) { }
+constructor(private httpClient : HttpClient, private messageService: MessageService) { }
 
   readAccounts(): Observable<Account[]>{
     return this.httpClient.get<Account[]>(`${this.PHP_API_SERVER}/index.php`);
+  }//
+  viewDetails(): Observable<Accountview[]>{
+    return this.httpClient.get<Accountview[]>(`${this.PHP_API_SERVER}/viewbalance.php`);
   }
   updateAccount(account: Account){
     return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/update.php`, account);
@@ -141,6 +151,42 @@ return CreateSavings ;
       .pipe(map(Loan => {
         return Loan;
       }));
+  }
+  public payloan(accountno, loanID,remainingmonths,payamount,nextpaydate) {
+    return this.httpClient.post<any>(this.baseUrl + '/payinstallment.php', { accountno,loanID, remainingmonths,payamount,nextpaydate })
+      .pipe(map( Payloan => {
+        return Payloan ;
+      }));
+  }
+  public reqloan(accountno, reqloantype,reqloanamount,reqdate) {
+    return this.httpClient.post<any>(this.baseUrl + '/reqloan.php', { accountno,reqloantype, reqloanamount,reqdate })
+      .pipe(map( Accloanreq=> {
+        return Accloanreq;
+      }));
+  }
+
+  searchUsers(term: string): Observable<Account[]> {
+    if (!term.trim()) {
+      // if not search term, return empty user array.
+      return of([]); //of(USERS) returns an Observable<User[]> that emits a single value, the array of mock users.
+    }
+    return this.httpClient.get<Account[]>(`${this.PHP_API_SERVER}/search.php/?customername=${term}`);
+  }
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+  private log(message: string) {
+    this.messageService.add('ApiService: ' + message);
   }
 
 //token
