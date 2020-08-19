@@ -26,6 +26,7 @@ import {SearchsavComponent} from "./account/searchsavings/searchsav.component";
 import {PayinstallmentComponent} from "./loan/payinstallment/payinstallment.component";
 import {ViewbalanceComponent} from "./dashboard customer/viewbalance/viewbalance.component";
 import {RequestloanComponent} from "./dashboard customer/requestloan/requestloan.component";
+import {HandlereqComponent} from "./manager/handlerequest/handlereq.component";
 
 
 const routes: Routes = [
@@ -54,7 +55,8 @@ const routes: Routes = [
   {path:'search', component:SearchsavComponent},
   {path:'payinstall', component:PayinstallmentComponent},
   {path:'viewbalance', component:ViewbalanceComponent},
-  {path:'reqloan',component:RequestloanComponent}
+  {path:'reqloan',component:RequestloanComponent},
+  {path:'handlereq', component:HandlereqComponent}
 
 ]
 

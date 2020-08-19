@@ -13,6 +13,8 @@ import {MessageService} from "./message.service";
 import {Payloan} from "./install";
 import {Accountview} from "./accountview";
 import {Accloanreq} from "./accloanreq";
+import {Handlereq} from "./acchandlereq";
+import {Proceedreq} from "./createprocessedloan";
 
 
 
@@ -52,6 +54,16 @@ constructor(private httpClient : HttpClient, private messageService: MessageServ
   readLoan(): Observable<Accloan[]>{
     return this.httpClient.get<Accloan[]>(`${this.PHP_API_SERVER}/readloan.php`);
   }
+  viewRequests(): Observable<Handlereq[]>{
+    return this.httpClient.get<Handlereq[]>(`${this.PHP_API_SERVER}/viewloanreq.php`);
+  }
+  processReq(handlereqs: Handlereq){
+    return this.httpClient.put<Handlereq>(`${this.PHP_API_SERVER}/processloanreq.php`, handlereqs);
+  }
+  deleteRequest(reqno: number){
+    return this.httpClient.delete<Handlereq>(`${this.PHP_API_SERVER}/deleteloanreq.php/?reqno=${reqno}`);
+  }
+
   updateGpAccount(gpaccount: ViewGpAcc){
     return this.httpClient.put<ViewGpAcc>(`${this.PHP_API_SERVER}/updategroup.php`, gpaccount);
   }

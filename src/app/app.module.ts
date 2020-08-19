@@ -33,6 +33,7 @@ import {SearchsavComponent} from "./account/searchsavings/searchsav.component";
 import {PayinstallmentComponent} from "./loan/payinstallment/payinstallment.component";
 import {ViewbalanceComponent} from "./dashboard customer/viewbalance/viewbalance.component";
 import {RequestloanComponent} from "./dashboard customer/requestloan/requestloan.component";
+import {HandlereqComponent} from "./manager/handlerequest/handlereq.component";
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import {RequestloanComponent} from "./dashboard customer/requestloan/requestloan
     SearchsavComponent,
     PayinstallmentComponent,
     ViewbalanceComponent,
-    RequestloanComponent
+    RequestloanComponent,
+    HandlereqComponent
 
   ],
   imports: [
