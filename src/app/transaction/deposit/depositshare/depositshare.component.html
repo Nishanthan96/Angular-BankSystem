@@ -1,12 +1,19 @@
 
-<div class="row"> <app-transaction></app-transaction>
+<div class="row" style="background-color: black">
   <div class="col-md-3">
+
   </div>
+  <app-transaction></app-transaction>
 
-
-  <div class="col-md-8 col-md-offset-2">
-    <div class="jumbotron">
-      <form #d = "ngForm">
+  <style>
+    #form{
+      background-color: #190a14;
+    }
+  </style>
+  <div class="col-md-4 col-md-offset-4" id="form"  >
+    <div class="jumbotron" id="form">
+      <h2 class="text-center" style="color: #8a8d92">Deposit Money (Share Account) </h2>
+      <form #d = "ngForm" id="form" style="color: #8a8d92">
         <div >
           <label for="shareID">Share ID</label>
           <input type="text" name="shareID"  autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.shareID">
@@ -19,8 +26,8 @@
           <label for="ddate">Date</label>
           <input type="date" name="ddate" autocomplete="off" class="form-control input-sm" >
         </div>
-
-        <button type="submit" class="btn btn-success" (click)="depositamountshare(d)" >Deposit</button>
+<br>
+        <button style="background-color: #6d747e"  type="submit" class="btn btn-success" (click)="depositamountshare(d)" >Deposit</button>
       </form>
     </div>
   </div>

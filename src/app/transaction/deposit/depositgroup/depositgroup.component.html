@@ -1,31 +1,38 @@
 
-<div class="row">
-  <app-transaction></app-transaction>
+<div class="row" style="background-color: black">
   <div class="col-md-3">
+
   </div>
+  <app-transaction></app-transaction>
 
+  <style>
+    #form{
+      background-color: #190a14;
+    }
+  </style>
 
-  <div class="col-md-8 col-md-offset-2">
-    <div class="jumbotron">
-      <form #d = "ngForm" >
-        <div>
+  <div class="col-md-4 col-md-offset-4" id="form"  >
+    <div class="jumbotron" id="form">
+      <h2 class="text-center" style="color: #8a8d92">Deposit Money (Group Account) </h2>
+      <form #d = "ngForm" [formGroup]="angFormtransgp"  (ngSubmit)="postdata(angFormtransgp)"id="form" style="color: #8a8d92">
+        <div class="form-group">
           <label for="groupID">Group ID</label>
-          <input type="text" name="groupID"  autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.groupID">
+          <input type="text" name="groupID"  autocomplete="off" formControlName="groupID" class="form-control input-sm" [(ngModel)]="selectedAccount.groupID">
         </div>
-        <div>
+        <div class="form-group">
           <label for="transgp">Transaction Amount</label>
-          <input type="number" name="transgp" autocomplete="off" class="form-control input-sm" [(ngModel)]="selectedAccount.balancegp">
+          <input type="number" name="transgp" autocomplete="off" formControlName="transgp" class="form-control input-sm" [(ngModel)]="selectedAccount.balancegp">
         </div>
-        <div>
+        <div class="form-group">
           <label for="accnodepgp">Deposit From (Account No)</label>
-          <input type="text" name="accnodepgp"  autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accnodepgp"  autocomplete="off" formControlName="accnodepgp" class="form-control input-sm" >
         </div>
-        <div>
+        <div class="form-group">
           <label for="ddate">Date</label>
-          <input type="date" name="ddate"  autocomplete="off" class="form-control input-sm" >
+          <input type="date" name="ddate"  autocomplete="off" formControlName="ddate" class="form-control input-sm" >
         </div>
-
-        <button type="submit" class="btn btn-success" (click)="depositamountgp(d)" >Deposit</button>
+<br>
+        <button style="background-color: #6d747e"  type="submit" class="btn btn-success" (click)="depositamountgp(d)" >Deposit</button>
       </form>
     </div>
   </div>

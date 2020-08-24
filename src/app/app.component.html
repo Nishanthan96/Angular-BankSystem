@@ -5,13 +5,13 @@
 <a class="nav-link" *ngIf="loginbtn" routerLink="home" routerLinkActive="active">Home</a>
 </li>
   <li class="nav navbar-nav">
-    <a class="nav-link" *ngIf="loginbtn" routerLink="home" routerLinkActive="active">Bank Information</a>
+    <a class="nav-link" *ngIf="loginbtn" routerLink="/bankinfo" routerLinkActive="active">Bank Information</a>
   </li>
   <li class="nav navbar-nav">
     <a class="nav-link" *ngIf="loginbtn" routerLink="/loaninfo" routerLinkActive="active">Loan Information</a>
   </li>
   <li class="nav navbar-nav">
-    <a class="nav-link" >..............................................................................................................................................................................................................</a>
+    <a class="nav-link" >....................................................................................................................................................................................................................</a>
   </li>
   <li class="nav navbar-nav">
     <a class="nav-link" *ngIf="loginbtn" routerLink="/createcus" routerLinkActive="active">Create Account</a>
@@ -24,10 +24,15 @@
 <a class="nav-link" *ngIf="loginbtn" routerLink="login" routerLinkActive="active">Login</a>
 </li>
 <li class="nav navbar-nav">
-<button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
+<button type="button" *ngIf="logoutbtn" class="btn btn-block" style="background: #190a14" (click)="logout()">logout</button>
 </li>
-
 </ul>
 </div>
 </nav>
+<style>
+  button{
+    color: cornflowerblue;
+    font-size: 15px;
+  }
+</style>
 <router-outlet></router-outlet>

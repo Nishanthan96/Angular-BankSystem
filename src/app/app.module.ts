@@ -34,6 +34,12 @@ import {PayinstallmentComponent} from "./loan/payinstallment/payinstallment.comp
 import {ViewbalanceComponent} from "./dashboard customer/viewbalance/viewbalance.component";
 import {RequestloanComponent} from "./dashboard customer/requestloan/requestloan.component";
 import {HandlereqComponent} from "./manager/handlerequest/handlereq.component";
+import {CustviewloanComponent} from "./dashboard customer/viewloandetails/custviewloan.component";
+import {MloginComponent} from "./manager/mlogin/mlogin.component";
+import {BankinfoComponent} from "./bankinfo/bankinfo.component";
+import {MgdashboardComponent} from "./manager/mgdashboard/mgdashboard.component";
+import {LoaninstallComponent} from "./dashboard customer/loaninstall/loaninstall.component";
+import {ReportComponent} from "./manager/transactionrep/report.component";
 
 
 @NgModule({
@@ -65,7 +71,13 @@ import {HandlereqComponent} from "./manager/handlerequest/handlereq.component";
     PayinstallmentComponent,
     ViewbalanceComponent,
     RequestloanComponent,
-    HandlereqComponent
+    HandlereqComponent,
+    CustviewloanComponent,
+    MloginComponent,
+    BankinfoComponent,
+    MgdashboardComponent,
+    LoaninstallComponent,
+    ReportComponent
 
   ],
   imports: [

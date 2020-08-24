@@ -12,7 +12,7 @@ import {ApiService} from "../../api.service";
 export class CustomerloginComponent implements OnInit {
   angFormcus: FormGroup;
   invalid: boolean = false;
-  constructor(private fb: FormBuilder,private dataService: ApiService,private router:Router) {
+  constructor(private fb: FormBuilder,private dataService: ApiService,private router:Router,DataService:ApiService) {
     this.angFormcus = this.fb.group({
       usernamec: ['', [Validators.required]],
       passwordc: ['', Validators.required]
@@ -27,11 +27,20 @@ export class CustomerloginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/custdash';
+          const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/viewbalance';
           this.router.navigate([redirect]);
         },
         error => {
           this.invalid = true
+        });
+    this.dataService.logged(angFormcus1.value.usernamec,angFormcus1.value.passwordc)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate(['/custdash']);
+        },
+
+        error => {
         });
   }
   get usernamec() { return this.angFormcus.get('usernamec'); }

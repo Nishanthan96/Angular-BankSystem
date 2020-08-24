@@ -3,13 +3,13 @@ export class Loan {
   public loanID: string;
   public loantype:string;
   public loanamount:number;
-  public loanduration:string;
+  public loanduration:number;
   public createdate:string;
   public startdate:string;
   public nextdate:string;
 
 
-  constructor(accountno:number,loanID: string,loantype:string,loanamount:number,loanduration:string,createdate:string,startdate:string,nextdate:string) {
+  constructor(accountno:number,loanID: string,loantype:string,loanamount:number,loanduration:number,createdate:string,startdate:string,nextdate:string) {
     this.accountno = accountno;
     this.loanID = loanID;
     this.loantype = loantype;
@@ -18,6 +18,5 @@ export class Loan {
     this.createdate = createdate;
     this.startdate = startdate;
     this.nextdate = nextdate;
-
   }
 }

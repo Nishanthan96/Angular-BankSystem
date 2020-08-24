@@ -24,3 +24,16 @@ export class CUsers {
 
   }
 }
+export class MUsers {
+
+  public usernamem: string;
+  public passwordm: string;
+
+
+  constructor(usernamem: string, passwordm: string) {
+
+    this.usernamem = usernamem;
+    this.passwordm = passwordm;
+
+  }
+}

@@ -1,6 +1,63 @@
-<p>Conditions for Loan Request.</p>
-  <p>Maximum Loan Value is 500000/=
- <p> •        The particular group should not contain two proceeding loans (not paid).</p>
-<p>  • The group account balance should be greater than 25% of the requested loan amount. </p>
-<p> • The share account balance should be greater than 10% of the requested loan amount.</p>
-<p> Currently the bank records its transactions using a manual file system and recorded transactions are transferred to an excel sheet by the two employees. Bank assistant is allowed only to handle cash deposits and cash withdrawals. Bank Manager can handle lending transactions and incurring loan installments.</p>
+
+<br><br>
+<body style="background-color: black">
+
+<div class="jumbotron text-center" style="background-color: #421200" >
+  <br>
+  <h1 style="font-family: Allan">Loan Information</h1>
+
+</div>
+<br><br><div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4 col-md-offset-1">
+    <style>
+      #form{
+        background-color: #190a14;
+      }
+    </style>
+    <div class="col-sm-12" id="form">
+      <h2 class="text-center" style="color: #190a14">.......................</h2>
+      <form autocomplete="off" style="color: #8a8d92" >
+        <p>Conditions for Loan Request.</p>
+        <p>Maximum Loan Value is 500000/=
+        <p> •The particular group should not contain two proceeding loans (not paid).</p>
+        <p>  • The group account balance should be greater than 25% of the requested loan amount. </p>
+        <p> • The share account balance should be greater than 10% of the requested loan amount.</p>
+
+      </form>
+      <h2 class="text-center" style="color: #190a14">.......................</h2>
+    </div>
+  </div>
+  <div class="col-md-4 col-md-offset-6">
+    <style>
+      #form{
+        background-color: #190a14;
+      }
+    </style>
+    <div class="col-sm-12" id="form">
+      <h2 class="text-center" style="color: #190a14">.......................</h2>
+      <form autocomplete="off" style="color: #8a8d92" >
+        <div class="form-group">
+          <label for="accountno"> Loan Amount</label>
+          <input type="number" name="accountno" [(ngModel)]="la" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="loanID">Duration(Months)</label>
+          <input type="number" name="loanID" [(ngModel)]="dm" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="loanID">Interest(%)</label>
+          <input type="number" name="loanID" [(ngModel)]="int" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <label *ngIf="valid">{{installment}}</label>
+
+      </form>
+      <h2 class="text-center" style="color: #190a14">.......................</h2>
+    </div>
+  </div>
+  <div class="col-md-5">
+  </div>
+</div>
+</body>
+

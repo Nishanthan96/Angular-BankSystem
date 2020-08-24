@@ -1,0 +1,71 @@
+
+<div class="row" style="background-color: black">
+  <div class="col-md-3">
+
+  </div>
+
+  <app-custdashboard></app-custdashboard>
+<body>
+<div class="col-md-6 col-md-offset-3" >
+  <div class="col-md-10 col-md-offset-1" id="form">
+    <div class= "jumbotron" align="center" id="form">
+      <br/>
+      <div *ngFor="let viewl of accloans" align="centre">
+
+        <style>
+          label{
+            font-size: 20px;
+          }
+          input{
+            font-size: 20px;
+            text-align: center;
+          }
+          #form{
+            background-color: #190a14;
+          }
+          ::placeholder{
+            color: black;
+          }
+          h2{
+            font-size: 25px;
+          }
+        </style>
+        <h2 class="text-center" style="color: #8a8d92">Your Loan Details </h2>
+
+        <form id="form" style="color: #8a8d92" >
+          <div class="form-group">
+            <label for="accountno">Account No</label><br>
+            <input placeholder=" {{ viewl.accountno }}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="loanID">Loan ID</label><br>
+            <input placeholder=" {{ viewl.loanID }}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="loanamount">Amount</label><br>
+            <input placeholder=" {{ viewl.loanamount }}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="loantype">Type</label><br>
+            <input placeholder=" {{ viewl.loantype }}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="createdate">Created Date</label><br>
+            <input placeholder=" {{ viewl.createdate }}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="nextdate">First Payment Date</label><br>
+            <input placeholder=" {{ viewl.nextdate }}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="installment">Installment</label><br>
+            <input placeholder=" {{ viewl.installment }}" disabled>
+          </div>
+        </form>
+        <p>-----------------------</p>
+       <br>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

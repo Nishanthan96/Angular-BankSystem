@@ -9,7 +9,6 @@ if($result = $mysqli->query($sql))
 	while($row = $result->fetch_assoc())
 	{
 		$groupacc[$i]['shareID'] = $row['shareID'];
-		$groupacc[$i]['accountno'] = $row['accountno'];
 		$groupacc[$i]['balanceshare'] = $row['balanceshare'];
 		$i++;
 	}

@@ -1,0 +1,41 @@
+<br><br>
+<body style="background-color: black">
+
+<div class="jumbotron text-center" style="background-color: #421200" >
+  <br>
+  <h1 style="font-family: Allan">Login</h1>
+
+</div>
+<br><br><div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4 col-md-offset-3">
+    <style>
+      #form{
+        background-color: #190a14;
+      }
+    </style>
+    <div class="col-sm-12" id="form">
+      <button routerLink="/login" routerLinkActive="active" style="background-color: #190a14"><span>Employee</span></button>
+      <button routerLink="/mlogin" routerLinkActive="active" style="background-color: #190a14"><span>Manager</span></button>
+      <h2 class="text-center" style="color: #190a14">.......................</h2>
+      <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" style="color: #8a8d92" >
+        <div class="form-group">
+          <label for="usernamem">Username</label>
+          <input type="text" name="usernamem" formControlName="usernamem" autocomplete="off" class="form-control input-sm" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <label for="passwordm">Password</label>
+          <input type="password" name="passwordm" formControlName="passwordm" autocomplete="off" class="form-control input-sm" placeholder="Password">
+        </div>
+        <button type="submit" style="background-color: #6d747e"  class="btn btn-success" >Login</button><br><br>
+        <label *ngIf="invalid" style="color: seashell">Incorrect Password/Username</label><br>
+        <span ><a href="#" style="color: #8a8d92">Forget Password</a></span>
+      </form>
+      <h2 class="text-center" style="color: #190a14">.......................</h2>
+    </div>
+  </div>
+  <div class="col-md-5">
+  </div>
+</div>
+</body>

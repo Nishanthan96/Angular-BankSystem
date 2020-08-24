@@ -1,5 +1,5 @@
 export class ViewGpAcc {
-  public groupID: number;
+  public groupID: string;
   public accountno1: number;
   public accountno2: number;
   public accountno3: number;

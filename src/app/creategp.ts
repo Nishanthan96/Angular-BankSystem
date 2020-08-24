@@ -1,5 +1,5 @@
 export class Creategp {
-  public groupID : number;
+  public groupID : string;
   public accountno1: number;
   public accountno2: number;
   public accountno3:number;
@@ -7,7 +7,7 @@ export class Creategp {
   public accountno5:number;
   public balancegp:number;
 
-  constructor(groupID:number,accountno1:number,accountno2: number,accountno3:number,accountno4:number,accountno5:number,balancegp:number) {
+  constructor(groupID:string,accountno1:number,accountno2: number,accountno3:number,accountno4:number,accountno5:number,balancegp:number) {
     this.groupID = groupID;
     this.accountno1 = accountno1;
     this.accountno2 = accountno2;

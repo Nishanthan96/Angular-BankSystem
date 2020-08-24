@@ -12,7 +12,7 @@ import {Account} from "../account";
 
 export class CustomerinfoComponent implements OnInit {
   accounts: Account[];
-  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID: null,groupID:null}
+  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID: null}
   constructor(private apiService: ApiService) {
 
   }
@@ -33,7 +33,6 @@ export class CustomerinfoComponent implements OnInit {
     form.value.dob = this.selectedAccount.dob;
     form.value.email = this.selectedAccount.email;
     form.value.phone = this.selectedAccount.phone;
-    form.value.balance = this.selectedAccount.balance;
     if(this.selectedAccount && this.selectedAccount.accountno){
       this.apiService.updateCustomer(form.value).subscribe((account: Account)=>{
         console.log("Account updated" , account);

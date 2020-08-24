@@ -29,13 +29,22 @@
         </div>
         <div class="form-group">
           <label for="accountno">Account Number</label>
-          <input type="text" name="accountno" formControlName="accountno" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accountno" formControlName="accountno" autocomplete="off" class="form-control input-sm" >
         </div>
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input type="text" name="phone" formControlName="phone" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="phone" formControlName="phone" autocomplete="off" class="form-control input-sm" >
         </div>
-
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="phone" formControlName="email" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <div class="form-group">
+          <label for="dob">DOB</label>
+          <input type="date" name="phone" formControlName="dob" autocomplete="off" class="form-control input-sm" >
+        </div>
+        <label *ngIf="invalid" style="color: seashell">Incorrect Details</label>
+        <label *ngIf="valid" style="color: seashell">Successfully Created...</label><br>
         <button style="background-color: #6d747e" type="submit" class="btn btn-success" >Create Account</button>
       </form>
       <h2 class="text-center" style="color: #190a14">.......................</h2>
@@ -46,5 +55,6 @@
 </div>
 
 </body>
+
 
 

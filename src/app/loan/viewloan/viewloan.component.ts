@@ -14,9 +14,10 @@ import {Accloan} from "../../accloan";
 
 export class ViewloanComponent implements OnInit {
   accloans: Accloan[];
+  valid: boolean = false;
+  invalid: boolean = false;
   selectedAccount: Accloan = { accountno : null , loanID: null, loanamount: null, loantype: null, loanduration: null, createdate: null, startdate: null, nextdate: null, installment: null}
   constructor(private apiService: ApiService) {
-
   }
 
   ngOnInit(): void {
@@ -36,22 +37,23 @@ export class ViewloanComponent implements OnInit {
     form.value.startdate = this.selectedAccount.startdate;
     form.value.createdate = this.selectedAccount.createdate;
     form.value.loanduration = this.selectedAccount.loanduration;
-    if(this.selectedAccount && this.selectedAccount.loanID){
+    if(this.selectedAccount && this.selectedAccount.accountno){
       this.apiService.updateLoan(form.value).subscribe((accloan: Accloan)=>{
-        console.log("Loan updated" , accloan);
+        this.valid = true;
+        this.invalid = false;
         this.apiService.readLoan().subscribe((accloans: Accloan[])=>{
           this.accloans = accloans;
         })
       });
     }
-
   }
   selectAccount(accloan: Accloan) {
     this.selectedAccount = accloan;
   }
-  deleteAccount(loanID){
-    this.apiService.deleteLoan(loanID).subscribe((accloan: Accloan)=>{
-      console.log("Loan deleted, ", accloan);
+  deleteloan(accountno){
+    this.apiService.deleteLoan(accountno).subscribe((accloan: Accloan)=>{
+      this.valid = false;
+      this.invalid = true;
     });
   }
 }

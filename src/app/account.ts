@@ -9,9 +9,8 @@ export class Account {
   public phone:number;
   public balance:number;
   public  shareID:string;
-  public groupID:string;
 
-  constructor(accountno: number, customername: string,category:string,address:string,dob:string,nic:string,email:string,phone:number,balance:number,shareID:string,groupID:string){
+  constructor(accountno: number, customername: string,category:string,address:string,dob:string,nic:string,email:string,phone:number,balance:number,shareID:string){
 
 
     this.accountno = accountno;
@@ -24,8 +23,6 @@ export class Account {
     this.phone = phone;
     this.balance = balance;
     this.shareID = shareID;
-    this.groupID = groupID;
-
 
   }
 

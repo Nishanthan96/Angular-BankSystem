@@ -1,12 +1,12 @@
 <?php
 require 'database.php';
-$loanID = ($_GET['loanID'] !== null && (int)$_GET['loanID'] > 0)? mysqli_real_escape_string($mysqli, (int)$_GET['loanID']) : false;
-if(!$loanID)
+$accountno = ($_GET['accountno'] !== null && (int)$_GET['accountno'] > 0)? mysqli_real_escape_string($mysqli, (int)$_GET['accountno']) : false;
+if(!$accountno)
 {
 	return http_response_code(400);
 }
 
-$sql = "DELETE FROM loan WHERE loanID =$loanID";
+$sql = "DELETE FROM loan WHERE accountno =$accountno";
 if($mysqli->query($sql))
 {
 	http_response_code(204);

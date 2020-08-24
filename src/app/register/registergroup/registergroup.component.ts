@@ -11,8 +11,11 @@ import {first} from "rxjs/operators";
 })
 export class RegistergroupComponent implements OnInit {
   angFormcreategp: FormGroup;
+  valid: boolean = false;
+
   constructor(private fb: FormBuilder,private dataService: ApiService,private router:Router) {
     this.angFormcreategp = this.fb.group({
+      groupID: ['', Validators.required],
       accountno1: ['', Validators.required],
       accountno2: ['', Validators.required],
       accountno3: ['', Validators.required],
@@ -27,17 +30,18 @@ export class RegistergroupComponent implements OnInit {
 
   postdata(angFormcreategp1)
   {
-    this.dataService.creategp(angFormcreategp1.value.accountno1,angFormcreategp1.value.accountno2,angFormcreategp1.value.accountno3,angFormcreategp1.value.accountno4,angFormcreategp1.value.accountno5,angFormcreategp1.value.balancegp)
+    this.dataService.creategp(angFormcreategp1.value.groupID,angFormcreategp1.value.accountno1,angFormcreategp1.value.accountno2,angFormcreategp1.value.accountno3,angFormcreategp1.value.accountno4,angFormcreategp1.value.accountno5,angFormcreategp1.value.balancegp)
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['login']);
+          this.valid = true;
         },
 
         error => {
         });
   }
 
+  get groupID() { return this.angFormcreategp.get('groupID'); }
   get accountno1() { return this.angFormcreategp.get('accountno1'); }
   get accountno2() { return this.angFormcreategp.get('accountno2'); }
   get accountno3() { return this.angFormcreategp.get('accountno3'); }

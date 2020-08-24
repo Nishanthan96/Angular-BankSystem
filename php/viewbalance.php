@@ -2,7 +2,17 @@
 require 'database.php';
 $createsavings = [];
 
-$sql = "SELECT * FROM createsavings WHERE accountno = 23" ;
+
+
+$vb = "SELECT accountno FROM cuslogged ORDER BY loggedno DESC LIMIT 1"  ;
+$aaa = mysqli_query($mysqli, $vb);
+while($bbb = $aaa->fetch_assoc())
+   $ccc = $bbb["accountno"];
+
+
+$sql = "SELECT * FROM createsavings WHERE accountno = '$ccc'" ;
+
+
 if($result = $mysqli->query($sql))
 {
 	$i = 0;
@@ -18,7 +28,6 @@ if($result = $mysqli->query($sql))
 		$createsavings[$i]['phone'] = $row['phone'];
 		$createsavings[$i]['balance'] = $row['balance'];
 		$createsavings[$i]['shareID'] = $row['shareID'];
-		$createsavings[$i]['groupID'] = $row['groupID'];
 		$i++;
 	}
 	echo json_encode($createsavings);

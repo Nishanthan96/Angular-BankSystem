@@ -13,9 +13,12 @@ import {first} from "rxjs/operators";
 })
 export class LoanComponent implements OnInit {
   angFormloan: FormGroup;
+  valid: boolean = false;
+  invalid: boolean = false;
+
   constructor(private fb: FormBuilder,private dataService: ApiService,private router:Router) {
     this.angFormloan = this.fb.group({
-      accountno: ['', [Validators.required,Validators.minLength(1), Validators.email]],
+      accountno: ['', [Validators.required,Validators.minLength(1)]],
       loanID: ['', Validators.required],
       loantype: ['', Validators.required],
       loanamount: ['', Validators.required],
@@ -36,10 +39,14 @@ export class LoanComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['login']);
+          this.valid = true;
+          this.invalid = false;
+          console.log(data)
         },
 
-        error => {
+        error => {this.invalid = true;
+          this.valid = false;
+          console.log(error)
         });
   }
   get accountno() { return this.angFormloan.get('accountno'); }

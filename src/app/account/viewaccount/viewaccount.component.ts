@@ -13,9 +13,8 @@ import {ApiService} from "../../api.service";
 
 export class ViewaccountComponent implements OnInit {
   accounts: Account[];
-  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID:null,groupID:null}
+  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID:null}
   constructor(private apiService: ApiService) {
-
      }
 
   ngOnInit(): void {
@@ -29,12 +28,9 @@ export class ViewaccountComponent implements OnInit {
     form.value.accountno = this.selectedAccount.accountno;
     form.value.customername= this.selectedAccount.customername;
     form.value.category = this.selectedAccount.category;
-    form.value.address = this.selectedAccount.address;
-    form.value.nic = this.selectedAccount.nic;
-    form.value.dob = this.selectedAccount.dob;
-    form.value.email = this.selectedAccount.email;
-    form.value.phone = this.selectedAccount.phone;
     form.value.balance = this.selectedAccount.balance;
+    form.value.shareID = this.selectedAccount.shareID;
+
     if(this.selectedAccount && this.selectedAccount.accountno){
       this.apiService.updateAccount(form.value).subscribe((account: Account)=>{
         console.log("Account updated" , account);

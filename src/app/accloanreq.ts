@@ -1,6 +1,5 @@
 export class Accloanreq{
-  public accountno: number;
   public reqloantype: string;
-  public reqloanamount:string;
-  public reqdate:number;
+  public reqloanamount:number;
+  public reqdate:string;
 }

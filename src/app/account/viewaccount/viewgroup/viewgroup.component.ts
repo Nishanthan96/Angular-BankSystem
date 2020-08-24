@@ -11,6 +11,9 @@ import {ViewGpAcc} from "../../../accountgroup";
 
 export class ViewgroupComponent implements OnInit {
 
+  valid: boolean = false;
+  invalid: boolean = false;
+
   gpaccounts: ViewGpAcc[];
   selectedAccount: ViewGpAcc = { groupID : null , accountno1: null, accountno2: null, accountno3: null, accountno4: null, accountno5: null, balancegp: null}
   constructor(private apiService: ApiService) {
@@ -30,9 +33,10 @@ export class ViewgroupComponent implements OnInit {
     form.value.accountno4 = this.selectedAccount.accountno4;
     form.value.accountno5 = this.selectedAccount.accountno5;
     form.value.balancegp = this.selectedAccount.balancegp;
-    if(this.selectedAccount && this.selectedAccount.groupID){
+    if(this.selectedAccount && this.selectedAccount.accountno1){
       this.apiService.updateGpAccount(form.value).subscribe((gpaccount: ViewGpAcc)=>{
-        console.log("Account updated" , gpaccount);
+        this.valid = true;
+        this.invalid = false;
         this.apiService.readGpAccount().subscribe((gpaccounts: ViewGpAcc[])=>{
           this.gpaccounts = gpaccounts;
         })
@@ -43,10 +47,12 @@ export class ViewgroupComponent implements OnInit {
   selectAccount(gpaccount: ViewGpAcc) {
     this.selectedAccount = gpaccount;
   }
-  deleteGpAccount(groupID){
-    this.apiService.deleteGpAccount(groupID).subscribe((groupaccount: ViewGpAcc)=>{
-      console.log("Account deleted, ", groupaccount);
+  deleteGpAccount(accountno1){
+    this.apiService.deleteGpAccount(accountno1).subscribe((groupaccount: ViewGpAcc)=>{
+      this.valid = false;
+      this.invalid = true;
     });
   }
+
 }
 

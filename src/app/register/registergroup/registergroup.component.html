@@ -1,41 +1,54 @@
 
-<div class="row">
+<div class="row" style="background-color: black">
   <div class="col-md-3">
   </div>
   <app-account></app-account>
 
-  <div class="col-md-6 col-md-offset-3">
-    <div class="jumbotron">
-      <form [formGroup]="angFormcreategp"  (ngSubmit)="postdata(angFormcreategp)" autocomplete="off" >
+  <style>
+    #form{
+      background-color: #190a14;
+    }
+  </style>
+
+  <div class="col-md-4 col-md-offset-4" id="form">
+    <div class="jumbotron" id="form">
+      <h2 class="text-center" style="color: #8a8d92">Create Group</h2>
+      <form [formGroup]="angFormcreategp"  (ngSubmit)="postdata(angFormcreategp)" autocomplete="off" style="color: #8a8d92" id="form">
+        <div class="form-group">
+          <label for="groupID">Group ID</label>
+          <input type="text" name="groupID" formControlName="groupID" autocomplete="off" class="form-control input-sm" >
+        </div>
         <div class="form-group">
           <label for="accountno1">Account Number 1</label>
-          <input type="text" name="accountno1" formControlName="accountno1" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accountno1" formControlName="accountno1" autocomplete="off" class="form-control input-sm" >
         </div>
         <div class="form-group">
           <label for="accountno2">Account Number 2</label>
-          <input type="text" name="accountno2" formControlName="accountno2" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accountno2" formControlName="accountno2" autocomplete="off" class="form-control input-sm" >
         </div>
         <div class="form-group">
           <label for="accountno3">Account Number 3</label>
-          <input type="text" name="accountno3" formControlName="accountno3" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accountno3" formControlName="accountno3" autocomplete="off" class="form-control input-sm" >
         </div>
         <div class="form-group">
           <label for="accountno4">Account Number 4</label>
-          <input type="text" name="accountno4" formControlName="accountno4" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accountno4" formControlName="accountno4" autocomplete="off" class="form-control input-sm" >
         </div>
         <div class="form-group">
           <label for="accountno5">Account Number 5</label>
-          <input type="text" name="accountno5" formControlName="accountno5" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accountno5" formControlName="accountno5" autocomplete="off" class="form-control input-sm" >
         </div>
         <div class="form-group">
           <label for="balancegp">Amount</label>
-          <input type="text" name="balancegp" formControlName="balancegp" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="balancegp" formControlName="balancegp" autocomplete="off" class="form-control input-sm" >
         </div>
+        <label *ngIf="valid" style="color: seashell">Group Created...</label><br>
 
-        <button type="submit" class="btn btn-success" >Create Group</button>
+        <button style="background-color: #6d747e"  type="submit" class="btn btn-success" >Create Group</button>
       </form>
     </div>
   </div>
   <div class="col-md-3">
   </div>
+
 </div>

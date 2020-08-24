@@ -27,6 +27,12 @@ import {PayinstallmentComponent} from "./loan/payinstallment/payinstallment.comp
 import {ViewbalanceComponent} from "./dashboard customer/viewbalance/viewbalance.component";
 import {RequestloanComponent} from "./dashboard customer/requestloan/requestloan.component";
 import {HandlereqComponent} from "./manager/handlerequest/handlereq.component";
+import {CustviewloanComponent} from "./dashboard customer/viewloandetails/custviewloan.component";
+import {MloginComponent} from "./manager/mlogin/mlogin.component";
+import {BankinfoComponent} from "./bankinfo/bankinfo.component";
+import {MgdashboardComponent} from "./manager/mgdashboard/mgdashboard.component";
+import {LoaninstallComponent} from "./dashboard customer/loaninstall/loaninstall.component";
+import {ReportComponent} from "./manager/transactionrep/report.component";
 
 
 const routes: Routes = [
@@ -56,7 +62,13 @@ const routes: Routes = [
   {path:'payinstall', component:PayinstallmentComponent},
   {path:'viewbalance', component:ViewbalanceComponent},
   {path:'reqloan',component:RequestloanComponent},
-  {path:'handlereq', component:HandlereqComponent}
+  {path:'handlereq', component:HandlereqComponent},
+  {path:'custviewloan', component:CustviewloanComponent},
+  {path:'mlogin',component:MloginComponent},
+  {path:'bankinfo', component:BankinfoComponent},
+  {path:'mgdashboard', component:MgdashboardComponent},
+  {path:'managerloan', component:LoaninstallComponent},
+  {path:'report', component:ReportComponent}
 
 ]
 

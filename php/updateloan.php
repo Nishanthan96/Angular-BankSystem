@@ -10,13 +10,13 @@ if(isset($postdata) && !empty($postdata))
 	}
 	$accountno = mysqli_real_escape_string($mysqli, (int)$request['accountno']);
 	$loanID = mysqli_real_escape_string($mysqli, trim($request['loanID']));
-	$loantype = mysqli_real_escape_string($mysqli, (float)$request['loantype']);
-	    	$loanamount = mysqli_real_escape_string($mysqli, (float)$request['loanamount']);
+	$loantype = mysqli_real_escape_string($mysqli, $request['loantype']);
+	    	$loanamount = mysqli_real_escape_string($mysqli, (int)$request['loanamount']);
 
 		$loanduration = mysqli_real_escape_string($mysqli, (int)$request['loanduration']);
   	$installment = mysqli_real_escape_string($mysqli, trim($request['installment']));
-  	$createdate = mysqli_real_escape_string($mysqli, (float)$request['createdate']);
-  		$startdate = mysqli_real_escape_string($mysqli, (int)$request['startdate']);
+  	$createdate = mysqli_real_escape_string($mysqli, $request['createdate']);
+  		$startdate = mysqli_real_escape_string($mysqli, $request['startdate']);
     	$nextdate = mysqli_real_escape_string($mysqli, trim($request['nextdate']));
 	$sql = "UPDATE loan SET accountno='$accountno',startdate='$startdate',nextdate='$nextdate' WHERE loanID= '$loanID'";
 

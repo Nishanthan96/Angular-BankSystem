@@ -11,6 +11,8 @@ styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 angForm: FormGroup;
+invalid: boolean = false;
+
 constructor(private fb: FormBuilder,private dataService: ApiService,private router:Router) {
 this.angForm = this.fb.group({
 usernamee: ['', [Validators.required]],
@@ -26,11 +28,11 @@ this.dataService.userlogin(angForm1.value.usernamee,angForm1.value.epassword)
 .pipe(first())
 .subscribe(
 data => {
-const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/dashboard';
+const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/registration';
 this.router.navigate([redirect]);
 },
   error => {
-alert("Username or password is incorrect")
+    this.invalid = true
 });
 }
 get usernamee() { return this.angForm.get('usernamee'); }

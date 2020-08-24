@@ -1,34 +1,41 @@
 
-<div class="row">
-  <app-transaction></app-transaction>
-  <div class="col-md-3">
+  <div class="row" style="background-color: black">
+    <div class="col-md-3">
 
-  </div>
+    </div>
+    <app-transaction></app-transaction>
 
-  <form #d = "ngForm" [formGroup]="angFormtransav"  (ngSubmit)="postdata(angFormtransav)">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="jumbotron">
+    <style>
+      #form{
+        background-color: #190a14;
+      }
+    </style>
 
-        <div>
+  <div class="col-md-4 col-md-offset-4" id="form"  >
+    <div class="jumbotron" id="form">
+      <h2 class="text-center" style="color: #8a8d92">Deposit Money </h2>
+  <form #d = "ngForm" [formGroup]="angFormtransav"  (ngSubmit)="postdata(angFormtransav)" id="form" style="color: #8a8d92" >
+
+        <div class="form-group">
           <label for="accountno">Account Number</label>
           <input type="text" name="accountno" autocomplete="off" formControlName="accountno" class="form-control input-sm" [(ngModel)]="selectedAccount.accountno">
         </div>
-        <div >
+        <div class="form-group" >
           <label for="amount">Transaction Amount</label>
           <input type="number" name="amount"  autocomplete="off" class="form-control input-sm" formControlName="amount"[(ngModel)]="selectedAccount.balance">
         </div>
-        <div>
+        <div class="form-group">
           <label for="datetrans">Date</label>
           <input type="date" name="datetrans"  autocomplete="off" class="form-control input-sm" formControlName="datetrans" ngModel="ddate" >
         </div>
+    <br>
+    <label *ngIf="valid" style="color: seashell">Money Deposited...</label><br>
 
-        <button type="submit" class="btn btn-success" (click)="depositamount(d)" >Deposit</button>
-
-    </div>
-  </div>
+    <button style="background-color: #6d747e"  type="submit" class="btn btn-success" (click)="depositamount(d)" >Deposit</button>
+  </form>
   <div class="col-md-3">
   </div>
-  </form>
+
 </div>
 
 

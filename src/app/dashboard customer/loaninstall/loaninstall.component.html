@@ -1,0 +1,86 @@
+
+<div class="row" style="background-color: black">
+  <div class="col-md-3">
+  </div>
+  <app-mgdashboard ></app-mgdashboard>
+  <style>
+    #form{
+      background-color: #190a14;
+    }
+    #cr{
+      color: #8a8d92;
+    }
+    input{
+      color: black;
+    }
+  </style>
+
+  <div class="col-md-8 col-md-offset-2" id="form">
+    <div class= "jumbotron" id="form">
+      <h2 class="text-center" style="color: #8a8d92">View Loan Payments</h2>
+      <br/>
+      <div>
+        <table class="table table-striped table-bordered">
+          <tr style="color: #8a8d92">
+            <th>Account No</th>
+            <th>Loan ID</th>
+            <th>Loan Amount</th>
+            <th>Loan Duration</th>
+            <th>Installment</th>
+            <th>Start Date</th>
+            <th>Next Payment Date</th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let accloan of accloans" id="cr">
+            <td>{{ accloan.accountno }}</td>
+            <td>{{ accloan.loanID }}</td>
+            <td>{{ accloan.loanamount }}</td>
+            <td>{{ accloan.loanduration }}</td>
+            <td>{{ accloan.installment }}</td>
+            <td>{{ accloan.startdate }}</td>
+            <td>{{ accloan.nextdate }}</td>
+            <td>
+
+            </td>
+          </tr>
+        </table>
+        <table class="table table-striped table-bordered">
+          <tr style="color: #8a8d92">
+            <th>Account No</th>
+            <th>Loan ID</th>
+            <th>Paid Amount</th>
+            <th>Remaining Months</th>
+            <th>Next Payment Date</th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let loanpay of loanpays" id="cr">
+            <td>{{ loanpay.accountno }}</td>
+            <td>{{ loanpay.loanID }}</td>
+            <td>{{ loanpay.payamount }}</td>
+            <td>{{ loanpay.remainingmonths }}</td>
+            <td>{{ loanpay.nextpaydate }}</td>
+            <td>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <form  style="color: #8a8d92" id="form" [formGroup]="angFormod"  (ngSubmit)="postdata(angFormod)">
+        <label>Account No</label>
+        <input type="number" name="accountno" autocomplete="off" formControlName="accountno" class="form-control input-sm">
+        <br>
+        <label>Loan ID</label>
+        <input type="text" name="loanid" autocomplete="off" formControlName="loanID" class="form-control input-sm"  >
+        <br>
+        <label>group ID</label>
+        <input type="text" name="groupID" autocomplete="off" formControlName="groupID" class="form-control input-sm" >
+        <br>
+        <label>Amount</label>
+        <input type="odamount" name="odamount" autocomplete="off" formControlName="odamount" class="form-control input-sm" >
+        <br>
+        <label *ngIf="valid" style="color: seashell">Added To Overdue List...And Not Enough Money In Savings Account</label><br>
+        <button style="background-color: #6d747e"  type="submit" class="btn btn-success" >Add To Overdue</button>
+        <button style="background-color: #6d747e" class="btn btn-success"  >Transfer From Savings</button>
+      </form>
+      <br/>
+    </div></div>
+</div>

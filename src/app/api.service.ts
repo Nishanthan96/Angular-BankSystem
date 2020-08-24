@@ -5,17 +5,23 @@ import {CreateSavings} from "./createsavings";
 
 import {Observable, of} from "rxjs";
 import {Account} from "./account";
-import {CUsers, Users} from "./users";
+import {CUsers, MUsers, Users} from "./users";
 import {ViewGpAcc} from "./accountgroup";
 import {ViewShareAcc} from "./accountshare";
-import {Accloan} from "./accloan";
+import {Accloan, LoanPay} from "./accloan";
 import {MessageService} from "./message.service";
 import {Payloan} from "./install";
 import {Accountview} from "./accountview";
 import {Accloanreq} from "./accloanreq";
 import {Handlereq} from "./acchandlereq";
 import {Proceedreq} from "./createprocessedloan";
-
+import {Createlogged} from "./createlogged";
+import {Creategp} from "./creategp";
+import {Createshare} from "./createshare";
+import {Createcus} from "./createcus";
+import {Loan} from "./createloan";
+import {Loanod} from "./createod";
+import {ViewgpRep, ViewRep} from "./accreport";
 
 
 @Injectable({
@@ -54,6 +60,18 @@ constructor(private httpClient : HttpClient, private messageService: MessageServ
   readLoan(): Observable<Accloan[]>{
     return this.httpClient.get<Accloan[]>(`${this.PHP_API_SERVER}/readloan.php`);
   }
+  readpaidLoan(): Observable<LoanPay[]>{
+    return this.httpClient.get<LoanPay[]>(`${this.PHP_API_SERVER}/readpaidloan.php`);
+  }
+  readLoancust(): Observable<Accloan[]>{
+    return this.httpClient.get<Accloan[]>(`${this.PHP_API_SERVER}/readloancust.php`);
+  }
+  readReport(): Observable<ViewRep[]>{
+    return this.httpClient.get<ViewRep[]>(`${this.PHP_API_SERVER}/readrep.php`);
+  }
+  readgpReport(): Observable<ViewgpRep[]>{
+    return this.httpClient.get<ViewgpRep[]>(`${this.PHP_API_SERVER}/readgprep.php`);
+  }
   viewRequests(): Observable<Handlereq[]>{
     return this.httpClient.get<Handlereq[]>(`${this.PHP_API_SERVER}/viewloanreq.php`);
   }
@@ -67,14 +85,29 @@ constructor(private httpClient : HttpClient, private messageService: MessageServ
   updateGpAccount(gpaccount: ViewGpAcc){
     return this.httpClient.put<ViewGpAcc>(`${this.PHP_API_SERVER}/updategroup.php`, gpaccount);
   }
-  deleteGpAccount(groupID: number){
-    return this.httpClient.delete<ViewGpAcc>(`${this.PHP_API_SERVER}/deletegroup.php/?groupID=${groupID}`);
+  updateRep(viewrep: ViewRep){
+    return this.httpClient.put<ViewRep>(`${this.PHP_API_SERVER}/updaterep.php`, viewrep);
+  }
+  updategpRep(viewgprep: ViewgpRep){
+    return this.httpClient.put<ViewgpRep>(`${this.PHP_API_SERVER}/updategprep.php`, viewgprep);
+  }
+  deleteGpAccount(accountno1: number){
+    return this.httpClient.delete<ViewGpAcc>(`${this.PHP_API_SERVER}/deletegroup.php/?accountno1=${accountno1}`);
+  }
+  deleteRep(accountno: number){
+    return this.httpClient.delete<ViewRep>(`${this.PHP_API_SERVER}/deleterep.php/?accountno=${accountno}`);
+  }
+  deletegpRep(groupID: string){
+    return this.httpClient.delete<ViewgpRep>(`${this.PHP_API_SERVER}/deletegprep.php/?groupID=${groupID}`);
+  }
+  deletepaidLoan(accountno: number){
+    return this.httpClient.delete<LoanPay>(`${this.PHP_API_SERVER}/deletepaidloan.php/?accountno=${accountno}`);
   }
   readCustomer(): Observable<Account[]>{
     return this.httpClient.get<Account[]>(`${this.PHP_API_SERVER}/index.php`);
   }
   updateCustomer(account: Account){
-    return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/update.php`, account);
+    return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/updatecustinfo.php`, account);
   }
   deleteCustomer(accountno: number){
     return this.httpClient.delete<Account>(`${this.PHP_API_SERVER}/delete.php/?accountno=${accountno}`);
@@ -82,8 +115,11 @@ constructor(private httpClient : HttpClient, private messageService: MessageServ
   updateLoan(accloan: Accloan){
     return this.httpClient.put<Accloan>(`${this.PHP_API_SERVER}/updateloan.php`, accloan);
   }
-  deleteLoan(loanID: string){
-    return this.httpClient.delete<Accloan>(`${this.PHP_API_SERVER}/deleteloan.php/?loanID=${loanID}`);
+  updatepaidLoan(loanpay: LoanPay){
+    return this.httpClient.put<LoanPay>(`${this.PHP_API_SERVER}/updatepaidloan.php`, loanpay);
+  }
+  deleteLoan(accountno: number){
+    return this.httpClient.delete<Accloan>(`${this.PHP_API_SERVER}/deleteloan.php/?accountno=${accountno}`);
   }
   depositsavings(account: Account){
     return this.httpClient.put<Account>(`${this.PHP_API_SERVER}/depositsavings.php`, account);
@@ -99,9 +135,15 @@ constructor(private httpClient : HttpClient, private messageService: MessageServ
   }
 
 
-
-
-
+  public mlogin(usernamem, passwordm) {
+    alert(usernamem)
+    return this.httpClient.post<any>(this.baseUrl + '/loginmanager.php', { usernamem, passwordm })
+      .pipe(map(MUsers => {
+        this.setToken(MUsers[0].name);
+        this.getLoggedInName.emit(true);
+        return MUsers;
+      }));
+  }
 
 public userlogin(usernamee, epassword) {
 alert(usernamee)
@@ -126,22 +168,36 @@ return Users;
 
 public userregistration(customername, category,address,dob,nic,email,phone,balance,shareID) {
 return this.httpClient.post<any>(this.baseUrl + '/register.php', { customername,category, address,dob,nic,email,phone,balance,shareID })
-.pipe(map(CreateSavings => {
+.pipe(map( CreateSavings=> {
 return CreateSavings ;
 }));
 }
-
-  public createcus(usernamec, passwordc,accountno,phone) {
-    return this.httpClient.post<any>(this.baseUrl + '/createcus.php', { usernamec,passwordc, accountno,phone })
-      .pipe(map(Createcus => {
-        return Createcus;
+  public sharereg(shareID) {
+    return this.httpClient.post<any>(this.baseUrl + '/registershare.php', { shareID })
+      .pipe(map( Createshare=> {
+        return Createshare ;
       }));
   }
 
 
-  public creategp(accountno1, accountno2,accountno3,accountno4,accountno5,balancegp) {
-    return this.httpClient.post<any>(this.baseUrl + '/registergp.php', { accountno1, accountno2,accountno3,accountno4,accountno5,balancegp })
-      .pipe(map(Creategp => {
+
+  public createcus(usernamec, passwordc,accountno,phone,email,dob) {
+    return this.httpClient.post<any>(this.baseUrl + '/createcus.php', { usernamec,passwordc, accountno,phone,email,dob })
+      .pipe(map(Createcus => {
+        return Createcus;
+      }));
+  }
+  public logged(usernamec, passwordc) {
+    return this.httpClient.post<any>(this.baseUrl + '/logged.php', { usernamec,passwordc})
+      .pipe(map( Createlogged => {
+        return Createlogged;
+      }));
+  }
+
+
+  public creategp(groupID,accountno1, accountno2,accountno3,accountno4,accountno5,balancegp) {
+    return this.httpClient.post<any>(this.baseUrl + '/registergp.php', { groupID,accountno1, accountno2,accountno3,accountno4,accountno5,balancegp })
+      .pipe(map( Creategp=> {
         return Creategp;
       }));
   }
@@ -158,10 +214,24 @@ return CreateSavings ;
         return Transactionsavings;
       }));
   }
+  public transactionsgp(groupID,transgp,accnodepgp,ddate) {
+    return this.httpClient.post<any>(this.baseUrl + '/transactiongp.php', { groupID,transgp,accnodepgp,ddate})
+      .pipe(map(Transactiongp => {
+        return Transactiongp;
+      }));
+
+  }
+
   public loansave(accountno, loanID,loantype,loanamount,loanduration,createdate,startdate,nextdate) {
     return this.httpClient.post<any>(this.baseUrl + '/loan.php', { accountno,loanID, loantype,loanamount,loanduration,createdate,startdate,nextdate })
       .pipe(map(Loan => {
         return Loan;
+      }));
+  }
+  public loanod(accountno, loanID,groupID,odamount) {
+    return this.httpClient.post<any>(this.baseUrl + '/loanod.php', { accountno, loanID,groupID,odamount })
+      .pipe(map(Loanod => {
+        return Loanod;
       }));
   }
   public payloan(accountno, loanID,remainingmonths,payamount,nextpaydate) {
@@ -170,8 +240,8 @@ return CreateSavings ;
         return Payloan ;
       }));
   }
-  public reqloan(accountno, reqloantype,reqloanamount,reqdate) {
-    return this.httpClient.post<any>(this.baseUrl + '/reqloan.php', { accountno,reqloantype, reqloanamount,reqdate })
+  public reqloan(reqloantype,reqloanamount,reqdate) {
+    return this.httpClient.post<any>(this.baseUrl + '/reqloan.php', { reqloantype, reqloanamount,reqdate })
       .pipe(map( Accloanreq=> {
         return Accloanreq;
       }));

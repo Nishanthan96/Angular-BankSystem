@@ -1,15 +1,22 @@
 
-<div class="row">
-  <div class="col-md-4">
+<div class="row" style="background-color: black">
+  <div class="col-md-3">
   </div>
   <app-createloan></app-createloan>
 
-  <div class="col-md-6 col-md-offset-3">
-    <div class="jumbotron">
-      <form [formGroup]="angFormloan" (ngSubmit)="postdata(angFormloan)" autocomplete="off" >
+  <style>
+    #form{
+      background-color: #190a14;
+    }
+  </style>
+
+  <div class="col-md-4 col-md-offset-4" id="form"  >
+    <div class="jumbotron" id="form">
+      <h2 class="text-center" style="color: #8a8d92">Create Loan</h2>
+      <form [formGroup]="angFormloan" (ngSubmit)="postdata(angFormloan)" autocomplete="off" id="form" style="color: #8a8d92" >
         <div class="form-group">
           <label for="accountno">Account No</label>
-          <input type="text" name="accountno" formControlName="accountno" autocomplete="off" class="form-control input-sm" >
+          <input type="number" name="accountno" formControlName="accountno" autocomplete="off" class="form-control input-sm" >
         </div>
         <div class="form-group">
           <label for="loanID">Loan Number</label>
@@ -42,8 +49,9 @@
           <label for="nextdate">Next Payment Date</label>
           <input type="date" name="nextdate" formControlName="nextdate" autocomplete="off" class="form-control input-sm" >
         </div>
-
-        <button type="submit" class="btn btn-success" >Save</button>
+        <label *ngIf="valid" style="color: seashell">Loan Created...</label>
+        <label *ngIf="invalid" style="color: seashell">Not Enough Money In Group Acc or Share Acc</label><br>
+        <button style="background-color: #6d747e"  type="submit" class="btn btn-success" >Save</button>
       </form>
     </div>
   </div>

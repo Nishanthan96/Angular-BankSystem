@@ -8,9 +8,9 @@ export class CreateSavings {
   public email:string;
   public phone:number;
   public balance:number;
-  public shareID:number
+  public shareID:string;
 
-  constructor(accountno:number,customername: string,category:string,address:string,dob:string,nic:string,email:string,phone:number,balance:number,shareID:number) {
+  constructor(accountno:number,customername: string,category:string,address:string,dob:string,nic:string,email:string,phone:number,balance:number,shareID:string) {
     this.accountno = accountno;
     this.customername = customername;
     this.category = category;
@@ -23,3 +23,4 @@ export class CreateSavings {
     this.shareID = shareID;
   }
 }
+//

@@ -3,23 +3,20 @@ export class Accloan {
   public loanID: string;
   public loantype:string;
   public loanamount:number;
-  public loanduration:string;
+  public loanduration:number;
   public createdate:string;
   public startdate:string;
   public nextdate:string;
   public installment:number;
 
 }
-export class payloan {
+export class LoanPay {
   public accountno: number;
   public loanID: string;
-  public loantype:string;
-  public loanamount:number;
-  public loanduration:string;
-  public createdate:string;
-  public startdate:string;
-  public nextdate:string;
-  public installment:number;
+  public payamount:number;
+  public remainingmonths:number;
+  public nextpaydate:string;
+
 
 }
 

@@ -13,7 +13,9 @@ import {first} from "rxjs/operators";
 export class WithdrawComponent implements OnInit {
   accounts: Account[];
   angFormtransav: FormGroup;
-  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID:null,groupID:null}
+  valid: boolean = false;
+  invalid: boolean = false;
+  selectedAccount: Account = { accountno : null , customername: null, category: null, address: null, nic: null, dob: null, email: null, phone: null, balance: null,shareID:null}
   constructor(private fb: FormBuilder,private apiService: ApiService,private router:Router,private dataService: ApiService) {
     this.angFormtransav = this.fb.group({
       accountno: ['', Validators.required],
@@ -37,10 +39,10 @@ export class WithdrawComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['login']);
+          this.router.navigate(['/withdraw']);
         },
 
-        error => {
+        error => { console.log('insufficient')
         });
   }
   get accountno() { return this.angFormtransav.get('accountno'); }
@@ -53,11 +55,12 @@ export class WithdrawComponent implements OnInit {
     form.value.balance = this.selectedAccount.balance;
     if(this.selectedAccount && this.selectedAccount.accountno){
       this.apiService.withdrawsavings(form.value).subscribe((account: Account)=>{
-        console.log("Account updated" , account);
+        this.valid = true;
+        this.invalid = false;
         this.apiService.readAccounts().subscribe((accounts: Account[])=>{
           this.accounts = accounts;
         })
-      });
+      },error=>{this.invalid = true ; this.valid = false});
     }
 
   }

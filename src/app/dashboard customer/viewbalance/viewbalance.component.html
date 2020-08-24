@@ -1,8 +1,14 @@
-<app-custdashboard></app-custdashboard>
+
+<div class="row" style="background-color: black">
+  <div class="col-md-3">
+
+  </div>
+
+  <app-custdashboard></app-custdashboard>
 <body>
 <div class="col-md-6 col-md-offset-3" >
-<div class="col-md-10 col-md-offset-1">
-  <div class= "jumbotron" align="center">
+<div class="col-md-10 col-md-offset-1" id="form">
+  <div class= "jumbotron" align="center" id="form">
     <br/>
      <div *ngFor="let account of accountviews" align="centre">
 
@@ -14,8 +20,19 @@
            font-size: 20px;
            text-align: center;
          }
+         #form{
+           background-color: #190a14;
+         }
+         ::placeholder{
+           color: black;
+         }
+         h2{
+           font-size: 25px;
+         }
        </style>
-       <form>
+       <h2 class="text-center" style="color: #8a8d92">Your Details </h2>
+
+       <form id="form" style="color: #8a8d92" >
          <div class="form-group">
            <label for="accountno">Account No</label><br>
            <input placeholder=" {{ account.accountno }}" disabled>

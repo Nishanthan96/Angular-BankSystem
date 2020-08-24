@@ -12,7 +12,7 @@ import {ViewShareAcc} from "../../../accountshare";
 export class DepositshareComponent implements OnInit {
 
   shareaccounts: ViewShareAcc[];
-  selectedAccount: ViewShareAcc = { shareID : null , balanceshare: null, accountno: null}
+  selectedAccount: ViewShareAcc = { shareID : null , balanceshare: null}
   constructor(private apiService: ApiService) {
 
   }

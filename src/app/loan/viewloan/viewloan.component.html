@@ -1,13 +1,27 @@
 
+<div class="row" style="background-color: black">
+  <div class="col-md-3">
+  </div>
+  <app-createloan ></app-createloan>
+  <style>
+    #form{
+      background-color: #190a14;
+    }
+    #cr{
+      color: #8a8d92;
+    }
+    input{
+      color: black;
+    }
+  </style>
 
-<div class="col-md-10 col-md-offset-1">
-  <app-createloan></app-createloan>
-  <div class="col-md-10 col-md-offset-1">
-  <div class= "jumbotron">
-
+  <div class="col-md-8 col-md-offset-2" id="form">
+    <div class= "jumbotron" id="form">
+      <h2 class="text-center" style="color: #8a8d92">View Loan</h2>
+      <br/>
 <div>
   <table class="table table-striped table-bordered">
-    <tr>
+    <tr style="color: #8a8d92">
       <th>Account No</th>
       <th>Loan ID</th>
       <th>Loan Type</th>
@@ -17,8 +31,9 @@
       <th>Created Date</th>
       <th>Start Date</th>
       <th>Next Payment Date</th>
+      <th></th>
     </tr>
-    <tr *ngFor="let accloan of accloans">
+    <tr *ngFor="let accloan of accloans" id="cr">
       <td>{{ accloan.accountno }}</td>
       <td>{{ accloan.loanID }}</td>
       <td>{{ accloan.loantype }}</td>
@@ -29,15 +44,15 @@
       <td>{{ accloan.startdate }}</td>
       <td>{{ accloan.nextdate }}</td>
       <td>
-        <button (click)="selectAccount(accloan)" >Edit</button>
-        <button (click)="deleteAccount(accloan.accountno )">Delete</button>
+        <button style="background-color: #6d747e"  (click)="selectAccount(accloan)" >Edit</button>
+        <button style="background-color: #6d747e"  (click)="deleteloan(accloan.accountno )">Delete</button>
       </td>
     </tr>
   </table>
 </div>
-<form #l = "ngForm">
+<form #l = "ngForm" style="color: #8a8d92" id="form">
   <label>Account No</label>
-  <input type="text" name="accountno" [(ngModel)] = "selectedAccount.accountno">
+  <input type="number" name="accountno" [(ngModel)] = "selectedAccount.accountno">
   <br>
   <label>Loan ID</label>
   <input type="text" name="loanid" [(ngModel)] = "selectedAccount.loanID">
@@ -48,7 +63,9 @@
   <label>Next Payment Date</label>
   <input type="date" name="nextdate" [(ngModel)] = "selectedAccount.nextdate">
   <br>
-  <input type="button" (click)="Updateloan(l)" value="Update Account">
+  <label *ngIf="valid" style="color: seashell">Account Updated...</label>
+  <label *ngIf="invalid" style="color: seashell">Account Deleted...</label><br>
+  <input style="background-color: #6d747e" type="button" (click)="Updateloan(l)" value="Update Account">
 </form>
 <br/>
   </div></div>
